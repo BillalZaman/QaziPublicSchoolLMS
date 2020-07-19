@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#161730</color>
+    <color name="colorPrimaryDark">#23244a</color>
     <color name="colorAccent">#03DAC5</color>
 
     <color name="light_black">#474747</color>
@@ -10,4 +10,10 @@
     <color name="colorDark">#23244a</color>
     <color name="colorDarkBlue">#161730</color>
     <color name="tab_color">#33345f</color>
+    <color name="color_darkred">#781529</color>
+
+    <color name="unSelectTabColor">#f7f7f7</color>
+    <color name="divider_color">#d9d9d9</color>
+    <color name="colorWhite">#FFFFFF</color>
+
 </resources>

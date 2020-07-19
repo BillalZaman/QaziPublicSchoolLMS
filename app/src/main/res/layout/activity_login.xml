@@ -1,9 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.activities.LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="onLoginClick"
+            type="com.infotech4It.qazipublicschool.view.activities.LoginActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activities.LoginActivity">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="Sign In"
+            android:letterSpacing="0.3"
+            android:textAllCaps="true"
+            android:textColor="@color/colorDark"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.120000005" />
+
+        <EditText
+            android:id="@+id/edtComputerID"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:ems="10"
+            android:paddingStart="16sp"
+            android:textSize="@dimen/medium"
+            android:background="@drawable/rounder_field"
+            android:inputType="textPersonName"
+            android:hint="Enter your Computer ID"
+            android:textColor="@color/colorDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerBranches"
+            android:paddingLeft="16sp" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:fontFamily="@font/poppins_light"
+            android:inputType="textPassword"
+            android:hint="Enter your Password"
+            android:paddingStart="16sp"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/medium"
+            android:background="@drawable/rounder_field"
+            app:layout_constraintEnd_toEndOf="@+id/edtComputerID"
+            app:layout_constraintStart_toStartOf="@+id/edtComputerID"
+            app:layout_constraintTop_toBottomOf="@+id/edtComputerID"
+            android:paddingLeft="16sp" />
+
+        <Spinner
+            android:id="@+id/spinnerBranches"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:paddingStart="16sp"
+            android:textSize="@dimen/medium"
+            android:background="@drawable/rounder_field"
+            android:fontFamily="@font/poppins_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0"
+            android:paddingLeft="16sp" />
+
+        <CheckBox
+            android:id="@+id/checkboxRememberedMe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Rememberd Me"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="@dimen/small_medium"
+            android:onClick="@{(view)->onLoginClick.onClick(view)}"
+            app:layout_constraintEnd_toEndOf="@+id/edtPassword"
+            app:layout_constraintStart_toStartOf="@+id/edtPassword"
+            app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Login"
+            android:gravity="center"
+            android:letterSpacing="0.3"
+            android:textSize="@dimen/medium_large"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/avenir_heavy"
+            android:onClick="@{(view)->onLoginClick.onClick(view)}"
+            android:background="@drawable/rect_bg"
+            app:layout_constraintEnd_toEndOf="@+id/checkboxRememberedMe"
+            app:layout_constraintStart_toStartOf="@+id/checkboxRememberedMe"
+            app:layout_constraintTop_toBottomOf="@+id/checkboxRememberedMe" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

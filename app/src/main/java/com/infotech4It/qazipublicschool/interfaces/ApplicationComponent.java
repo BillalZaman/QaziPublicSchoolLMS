@@ -1,5 +1,6 @@
 package com.infotech4It.qazipublicschool.interfaces;
 
+import com.infotech4It.qazipublicschool.fragments.MoreFragment;
 import com.infotech4It.qazipublicschool.module.internetModule.InternetModule;
 import com.infotech4It.qazipublicschool.module.uiHelperModule.UIHelperModule;
 import com.infotech4It.qazipublicschool.view.activities.LoginActivity;
@@ -27,4 +28,6 @@ public interface ApplicationComponent {
     void injectUIHelper(LoginActivity loginActivity);
 
     void injectUIHelper(ReleatedSubjectListActivity releatedSubjectListActivity);
+
+    void injectUIHelper(MoreFragment moreFragment);
 }

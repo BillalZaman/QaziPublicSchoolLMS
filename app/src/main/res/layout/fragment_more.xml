@@ -4,10 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="onMoreClick"
+            type="com.infotech4It.qazipublicschool.fragments.MoreFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.MoreFragment">
@@ -44,9 +47,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
-            android:text="Change Password"
+            android:text="@string/change_password"
             android:gravity="center|start"
             android:textSize="@dimen/medium"
+            android:onClick="@{(view)->onMoreClick.onClick(view)}"
             android:textColor="@color/colorDark"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,9 +72,10 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
-            android:text="Logout"
+            android:text="@string/btn_logout"
             android:gravity="center|start"
             android:textSize="@dimen/medium"
+            android:onClick="@{(view)->onMoreClick.onClick(view)}"
             android:textColor="@color/colorDark"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toEndOf="@+id/txtChangePassword"
@@ -78,39 +83,26 @@
             app:layout_constraintTop_toBottomOf="@+id/txtChangePassword" />
 
         <TextView
-            android:id="@+id/txtShareApp"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="8dp"
-            android:text="Share Our App"
-            android:gravity="center|start"
-            android:textSize="@dimen/medium"
-            android:textColor="@color/colorDark"
-            android:fontFamily="@font/poppins_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/txtChangePassword"
-            app:layout_constraintTop_toBottomOf="@+id/txtLogout" />
-
-        <TextView
             android:id="@+id/txtPrivacyPolicy"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
-            android:text="Privacy Policy"
+            android:text="@string/privacy_policy"
             android:gravity="center|start"
             android:textSize="@dimen/medium"
+            android:onClick="@{(view)->onMoreClick.onClick(view)}"
             android:textColor="@color/colorDark"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toEndOf="@+id/txtChangePassword"
             app:layout_constraintStart_toStartOf="@+id/txtChangePassword"
-            app:layout_constraintTop_toBottomOf="@+id/txtShareApp" />
+            app:layout_constraintTop_toBottomOf="@+id/txtLogout" />
 
         <TextView
             android:id="@+id/txtVersion"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
-            android:text="Verion 1.1"
+            android:text="@string/verion_1_1"
             android:gravity="center|start"
             android:textSize="@dimen/medium"
             android:textColor="@color/colorDark"

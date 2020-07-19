@@ -16,11 +16,12 @@ import com.infotech4It.qazipublicschool.fragments.NoticeBoardFragment;
 import com.infotech4It.qazipublicschool.fragments.ProfileFragment;
 import com.infotech4It.qazipublicschool.fragments.SubjectFragment;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
+import com.infotech4It.qazipublicschool.interfaces.LogoutInterface;
 import com.infotech4It.qazipublicschool.interfaces.SubjectListInterface;
 
 import javax.inject.Inject;
 
-public class MainActivity extends AppCompatActivity implements SubjectListInterface {
+public class MainActivity extends AppCompatActivity implements SubjectListInterface, LogoutInterface {
     @Inject
     UIHelper uiHelper;
     private ActivityMainBinding binding;
@@ -71,5 +72,10 @@ public class MainActivity extends AppCompatActivity implements SubjectListInterf
     @Override
     public void onSubjectList(int position, String lessonName) {
         uiHelper.openActivity(this, ReleatedSubjectListActivity.class);
+    }
+
+    @Override
+    public void onLogout(String logout) {
+
     }
 }

@@ -2,4 +2,14 @@
     <string name="app_name">QaziPublicSchool</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="change_password">Change Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirn_pass">Confirm Password</string>
+    <string name="logout">Are You Sure You Want To Logout</string>
+    <string name="btn_logout">Logout</string>
+    <string name="cancel">Cancel</string>
+    <string name="share_our_app">Share Our App</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="verion_1_1">Verion 1.1</string>
 </resources>

@@ -22,6 +22,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.text.TextUtils.TruncateAt;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Patterns;
 import android.view.Display;
@@ -52,6 +53,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
@@ -69,15 +71,15 @@ import constants.Constants;
 
 public class UIHelper {
 
-//    public String getAuthKey() {
-//        byte[] data = new byte[0];
-//        try {
-//            data = (Constants.ApiUserName + ":" + Constants.ApiPassword).getBytes("UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-//        return "Basic " + Base64.encodeToString(data, Base64.NO_WRAP);
-//    }
+    public String getAuthKey() {
+        byte[] data = new byte[0];
+        try {
+            data = (Constants.ApiUserName + ":" + Constants.ApiPassword).getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return "Basic " + Base64.encodeToString(data, Base64.NO_WRAP);
+    }
 
     public static void getRouteFromCurrent(Context context, String latitude, String longitude) {
         Uri navigationIntentUri = Uri.parse("google.navigation:q=" + latitude + "," + longitude);//creating intent with latlng

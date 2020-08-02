@@ -12,6 +12,7 @@
     <string name="share_our_app">Share Our App</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="verion_1_1">Verion 1.1</string>
+    <string name="loading">Loading...</string>
     <string name="empty_computerId">Please Enter your Computer ID</string>
     <string name="empty_password">Please Enter your Password</string>
 </resources>

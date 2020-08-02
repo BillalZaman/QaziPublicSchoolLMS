@@ -3,6 +3,7 @@ package com.infotech4It.qazipublicschool.interfaces;
 import com.infotech4It.qazipublicschool.fragments.MoreFragment;
 import com.infotech4It.qazipublicschool.module.internetModule.InternetModule;
 import com.infotech4It.qazipublicschool.module.uiHelperModule.UIHelperModule;
+import com.infotech4It.qazipublicschool.repository.StudentRepo;
 import com.infotech4It.qazipublicschool.view.activities.LoginActivity;
 import com.infotech4It.qazipublicschool.view.activities.MainActivity;
 import com.infotech4It.qazipublicschool.view.activities.ReleatedSubjectListActivity;
@@ -33,4 +34,6 @@ public interface ApplicationComponent {
     void injectUIHelper(SubjectDetailActivity releatedSubjectListActivity);
 
     void injectUIHelper(MoreFragment moreFragment);
+
+    void injectUIHelper(StudentRepo studentRepo);
 }

@@ -7,6 +7,7 @@ import com.infotech4It.qazipublicschool.view.activities.LoginActivity;
 import com.infotech4It.qazipublicschool.view.activities.MainActivity;
 import com.infotech4It.qazipublicschool.view.activities.ReleatedSubjectListActivity;
 import com.infotech4It.qazipublicschool.view.activities.SplashActivity;
+import com.infotech4It.qazipublicschool.view.activities.SubjectDetailActivity;
 
 import javax.inject.Singleton;
 
@@ -28,6 +29,8 @@ public interface ApplicationComponent {
     void injectUIHelper(LoginActivity loginActivity);
 
     void injectUIHelper(ReleatedSubjectListActivity releatedSubjectListActivity);
+
+    void injectUIHelper(SubjectDetailActivity releatedSubjectListActivity);
 
     void injectUIHelper(MoreFragment moreFragment);
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="onFillModel"
+            type="com.infotech4It.qazipublicschool.view.models.FillBlankModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtQuestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@{onFillModel.question}"
+            android:fontFamily="@font/avenir_black"
+            android:textColor="@color/color_darkred"
+            android:textSize="@dimen/medium_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/edtAnswer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Please Enter the Correct Answer"
+            android:text="@{onFillModel.answer}"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textSize="@dimen/medium"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/rounder_field"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtQuestion"
+            app:layout_constraintStart_toStartOf="@+id/txtQuestion"
+            app:layout_constraintTop_toBottomOf="@+id/txtQuestion" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

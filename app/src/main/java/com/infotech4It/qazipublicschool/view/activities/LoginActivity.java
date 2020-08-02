@@ -13,6 +13,7 @@ import com.infotech4It.qazipublicschool.ApplicationState;
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ActivityLoginBinding;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
+import com.infotech4It.qazipublicschool.view.adapters.SpinnerAdapter;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,18 @@ public class LoginActivity extends AppCompatActivity {
 
     private void init() {
         binding.setOnLoginClick(this);
-        setSpinnerData();
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Please Select Branch");
+        arrayList.add("Qazi Apex Grammar School (Venus Campus)");
+        arrayList.add("Qazi Pilot High School");
+        arrayList.add("Qazi Grammer Boys High School");
+        arrayList.add("Qazi Girls High School");
+        arrayList.add("Qazi Grammar Girls School");
+        arrayList.add("Qazi Public Girls School");
+        arrayList.add("Qazi Apex Grammar School (Pak Arab Campus)");
+        binding.spinnerBranches.setAdapter(new SpinnerAdapter(this, android.R.layout.simple_spinner_item,
+                arrayList));
+//        setSpinnerData();
     }
 
     private void setSpinnerData() {
@@ -67,8 +79,26 @@ public class LoginActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnLogin: {
-                uiHelper.openActivity(this, MainActivity.class);
+                if (validation()) {
+                    uiHelper.openActivity(this, MainActivity.class);
+                }
             }
         }
+    }
+
+    public boolean validation(){
+        boolean check = true;
+
+        if (binding.edtComputerID.getText().toString().isEmpty()) {
+            binding.edtComputerID.setError(getString(R.string.empty_computerId));
+            check = false;
+
+        } else if (binding.edtPassword.getText().toString().isEmpty()) {
+            binding.edtPassword.setError(getString(R.string.empty_password));
+            check = false;
+
+        }
+
+        return check;
     }
 }

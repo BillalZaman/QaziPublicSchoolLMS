@@ -42,7 +42,7 @@ public class SubjectFragment extends Fragment {
     private void setRecyclerView() {
         adapter = new SubjectAdapter(getContext());
         for (int i =0; i<=25; i++) {
-            dataList.add(new SubjectModel(R.drawable.ic_menu_profile, "English " + i));
+            dataList.add(new SubjectModel(R.drawable.computer, "English " + i));
         }
         adapter.setList(dataList);
         binding.recyclerview.setAdapter(adapter);

@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg"
         tools:context=".view.activities.LoginActivity">
 
         <TextView
@@ -25,7 +26,7 @@
             android:text="Sign In"
             android:letterSpacing="0.3"
             android:textAllCaps="true"
-            android:textColor="@color/colorDark"
+            android:textColor="@color/colorWhite"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +48,8 @@
             android:background="@drawable/rounder_field"
             android:inputType="textPersonName"
             android:hint="Enter your Computer ID"
-            android:textColor="@color/colorDark"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinnerBranches"
@@ -63,7 +65,8 @@
             android:inputType="textPassword"
             android:hint="Enter your Password"
             android:paddingStart="16sp"
-            android:textColor="@color/colorDark"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/medium"
             android:background="@drawable/rounder_field"
             app:layout_constraintEnd_toEndOf="@+id/edtComputerID"
@@ -99,6 +102,8 @@
             android:text="Rememberd Me"
             android:fontFamily="@font/poppins_light"
             android:textSize="@dimen/small_medium"
+            android:textColor="@color/colorWhite"
+            android:buttonTint="@color/colorWhite"
             android:onClick="@{(view)->onLoginClick.onClick(view)}"
             app:layout_constraintEnd_toEndOf="@+id/edtPassword"
             app:layout_constraintStart_toStartOf="@+id/edtPassword"

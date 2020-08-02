@@ -34,7 +34,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
         binding.setOnRelatedTabClick(this);
         RecentLessonsFragment recentLessonsFragment = new RecentLessonsFragment();
         uiHelper.replaceFragment(this, R.id.framelayout, recentLessonsFragment);
-        binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorDark));
+        binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         binding.tabRecentLessons.setTextColor(getResources().getColor(R.color.colorWhite));
     }
 
@@ -43,7 +43,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
             case R.id.tab_recent_lessons: {
                 RecentLessonsFragment recentLessonsFragment = new RecentLessonsFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, recentLessonsFragment);
-                binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorDark));
+                binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 binding.tabRecentLessons.setTextColor(getResources().getColor(R.color.colorWhite));
                 resetAllColorPreferences(1);
                 break;
@@ -51,7 +51,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
             case R.id.tab_all_lessons: {
                 AllLessonsFragment allLessonsFragment = new AllLessonsFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, allLessonsFragment);
-                binding.tabAllLessons.setBackgroundColor(getResources().getColor(R.color.colorDark));
+                binding.tabAllLessons.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 binding.tabAllLessons.setTextColor(getResources().getColor(R.color.colorWhite));
                 resetAllColorPreferences(2);
                 break;
@@ -59,7 +59,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
             case R.id.tab_recent_assessment: {
                 RecentAssessmentsFragment recentAssessmentsFragment = new RecentAssessmentsFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, recentAssessmentsFragment);
-                binding.tabRecentAssessment.setBackgroundColor(getResources().getColor(R.color.colorDark));
+                binding.tabRecentAssessment.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 binding.tabRecentAssessment.setTextColor(getResources().getColor(R.color.colorWhite));
                 resetAllColorPreferences(3);
                 break;
@@ -67,7 +67,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
             case R.id.tab_all_assessments: {
                 AllAssessmentsFragment allAssessmentsFragment = new AllAssessmentsFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, allAssessmentsFragment);
-                binding.tabAllAssessments.setBackgroundColor(getResources().getColor(R.color.colorDark));
+                binding.tabAllAssessments.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 binding.tabAllAssessments.setTextColor(getResources().getColor(R.color.colorWhite));
                 resetAllColorPreferences(4);
                 break;

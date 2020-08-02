@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/splash"
         tools:context=".view.activities.SplashActivity">
 
 
@@ -27,6 +28,7 @@
             android:textAllCaps="true"
             android:textColor="@color/colorDark"
             android:textSize="40sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +46,7 @@
             android:textAllCaps="true"
             android:textColor="@color/colorDark"
             android:textSize="40sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />

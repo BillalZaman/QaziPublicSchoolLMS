@@ -8,4 +8,7 @@ import android.content.Context;
 public class Constants {
     public static String CLASS_NAME = "className";
     public static Context CONTEXT = null;
+
+    public static final String PREF_NAMES = "user_preferences";
+
 }

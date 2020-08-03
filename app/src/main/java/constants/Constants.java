@@ -15,4 +15,6 @@ public class Constants {
     public static int FAILURE = 400;
     public static int SUCCESS_CODE = 200;
 
+    public static final String PREF_NAMES = "user_preferences";
+
 }

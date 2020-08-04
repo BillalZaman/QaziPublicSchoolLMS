@@ -22,5 +22,7 @@ public class Constants {
     public static final String MSG_KEY = "msgKey";
 
     public static final String IS_OPON_FIRST_TIME = "isOpenFirstTime";
+    public static final String userInfo = "userInfo";
+    public static final String subjectID = "subjectID";
 
 }

@@ -6,7 +6,7 @@
 
         <variable
             name="onSubjectModel"
-            type="com.infotech4It.qazipublicschool.view.models.SubjectModel" />
+            type="com.infotech4It.qazipublicschool.view.models.StudentSubjectModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -52,9 +52,10 @@
                 android:gravity="center|start"
                 android:hint="English A"
                 android:lineSpacingExtra="0.3dp"
-                android:text="@{onSubjectModel.subjectName}"
+                android:text="@{onSubjectModel.name}"
                 android:textColor="@color/colorDark"
                 android:textSize="@dimen/large"
+                android:textAlignment="viewStart"
                 app:layout_constraintBottom_toBottomOf="@+id/imgSubjectIcon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imgSubjectIcon"

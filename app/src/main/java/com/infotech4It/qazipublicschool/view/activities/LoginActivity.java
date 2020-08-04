@@ -17,9 +17,11 @@ import com.infotech4It.qazipublicschool.ApplicationState;
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ActivityLoginBinding;
 import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
+import com.infotech4It.qazipublicschool.helpers.SpecialSharedPrefHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
 import com.infotech4It.qazipublicschool.view.adapters.SpinnerAdapter;
 import com.infotech4It.qazipublicschool.view.models.BranchModel;
+import com.infotech4It.qazipublicschool.view.models.StudentModel;
 import com.infotech4It.qazipublicschool.viewModel.StudentViewModel;
 import com.infotech4It.qazipublicschool.viewModel.ViewModelStatus;
 import com.infotech4It.qazipublicschool.webservices.response.Response;
@@ -53,10 +55,6 @@ public class LoginActivity extends AppCompatActivity {
         binding.setOnLoginClick(this);
         getLoadingStatus();
 
-        if (uiHelper.isNetworkAvailable(this)) {
-//            studentViewModel.getBranchList();
-            setSpinnerData();
-        }
     }
 
     private void getLoadingStatus() {
@@ -139,7 +137,10 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
                     } else if (response.getDataObject().getStudentModel() != null) {
+                        StudentModel studentModel = new StudentModel();
+                        studentModel = response.getDataObject().getStudentModel();
                         PreferenceHelper.getInstance().setString(Constants.isLogin, Constants.yes);
+                        PreferenceHelper.getInstance().setInt(Constants.userInfo,studentModel.getId());
                         uiHelper.showLongToastInCenter(LoginActivity.this, "User Login Successfully");
                         uiHelper.openActivity(LoginActivity.this, MainActivity.class);
                     }

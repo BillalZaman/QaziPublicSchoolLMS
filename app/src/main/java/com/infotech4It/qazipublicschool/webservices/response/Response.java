@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Response implements Serializable {
     @SerializedName("code")
     @Expose
-    private Integer code;
+    private int code;
     @SerializedName("data")
     @Expose
     private DataObject dataObject;
@@ -19,11 +19,11 @@ public class Response implements Serializable {
     @Expose
     private Boolean status;
 
-    public Integer getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 /**
- * Created by Bilal Zaman on 18/07/2020.
+ * Created by Bilal Zaman on 04/08/2020.
  */
-public class AllLessonModel implements Serializable {
+public class StudentSubjectModel implements Serializable {
     @SerializedName("id")
     @Expose
     private Integer id;

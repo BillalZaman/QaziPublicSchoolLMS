@@ -19,8 +19,16 @@ public interface ApiInterface {
     @POST(Request.GET_BRANCH_LIST)
     Observable<Response> getBranchList(@Header("Authorization") String authKey);
 
+    @POST(Request.GET_SUBJECT_LIST)
+    Observable<Response> getStudentSubjectList(@Header("Authorization") String authkey, @Body RequestBody getSubjectListRequest);
+
+    @POST(Request.GET_SUBJECT_DETAIL)
+    Observable<Response> getStudentSubjectDetail(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
+
     interface Request {
         String LOGIN = "site/login";
         String GET_BRANCH_LIST = "branch/get-list";
+        String GET_SUBJECT_LIST = "subject/get-student-subjects";
+        String GET_SUBJECT_DETAIL = "subject/get-subject-data";
     }
 }

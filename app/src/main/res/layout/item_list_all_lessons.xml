@@ -41,7 +41,7 @@
                 android:textColor="@color/colorDark"
                 android:textSize="@dimen/medium"
                 android:fontFamily="@font/avenir_black"
-                android:text="@{onAllLessonModel.lessonName}"
+                android:text="@{onAllLessonModel.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

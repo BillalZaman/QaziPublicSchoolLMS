@@ -14,10 +14,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ItemListSubjectsBinding;
+import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.interfaces.SubjectListInterface;
+import com.infotech4It.qazipublicschool.view.models.StudentSubjectModel;
 import com.infotech4It.qazipublicschool.view.models.SubjectModel;
 
 import java.util.ArrayList;
+
+import constants.Constants;
 
 /**
  * Created by Bilal Zaman on 18/07/2020.
@@ -25,7 +29,7 @@ import java.util.ArrayList;
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<SubjectModel> data;
+    private ArrayList<StudentSubjectModel> data;
     private SubjectListInterface subjectListInterface;
     int widthdp, heightdp;
 
@@ -38,7 +42,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
 
     }
 
-    public void setList(ArrayList<SubjectModel> data){
+    public void setList(ArrayList<StudentSubjectModel> data){
         this.data = data;
         notifyDataSetChanged();
     }
@@ -54,14 +58,15 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.binding.setOnSubjectModel(data.get(position));
-        Glide.with(context).load(data.get(position).getSubjectIcon())
+        Glide.with(context).load(data.get(position).getImage())
                 .apply(new RequestOptions().override(widthdp, heightdp))
                 .into(holder.binding.imgSubjectIcon);
 //         .apply(new RequestOptions().override(widthdp, heightdp)).placeholder(R.drawable.placeholder_image)
         holder.binding.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                subjectListInterface.onSubjectList(position, data.get(position).getSubjectName());
+                subjectListInterface.onSubjectList(position, data.get(position).getName());
+                PreferenceHelper.getInstance().setInt(Constants.subjectID, data.get(position).getId());
             }
         });
     }

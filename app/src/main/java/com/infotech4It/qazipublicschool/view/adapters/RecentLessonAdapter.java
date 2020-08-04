@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ItemListRecentLessonsBinding;
 import com.infotech4It.qazipublicschool.view.activities.SubjectDetailActivity;
+import com.infotech4It.qazipublicschool.view.models.AllLessonModel;
 import com.infotech4It.qazipublicschool.view.models.RecentLessonModel;
 
 import java.util.ArrayList;
@@ -23,14 +24,14 @@ import java.util.ArrayList;
 public class RecentLessonAdapter extends RecyclerView.Adapter<RecentLessonAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<RecentLessonModel> data;
+    private ArrayList<AllLessonModel> data;
 
     public RecentLessonAdapter(Context context) {
         this.context = context;
         this.data = new ArrayList<>();
     }
 
-    public void setList(ArrayList<RecentLessonModel> data) {
+    public void setList(ArrayList<AllLessonModel> data) {
         this.data = data;
         notifyDataSetChanged();
     }

@@ -16,5 +16,11 @@ public class Constants {
     public static int SUCCESS_CODE = 200;
 
     public static final String PREF_NAMES = "user_preferences";
+    public static final String isLogin ="isLogin";
+    public static final String yes = "yes";
+    public static final String no = "no";
+    public static final String MSG_KEY = "msgKey";
+
+    public static final String IS_OPON_FIRST_TIME = "isOpenFirstTime";
 
 }

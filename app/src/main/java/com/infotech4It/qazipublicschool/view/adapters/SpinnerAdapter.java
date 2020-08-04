@@ -13,18 +13,19 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 
 import com.infotech4It.qazipublicschool.R;
+import com.infotech4It.qazipublicschool.view.models.BranchModel;
 
 import java.util.ArrayList;
 
 /**
  * Created by Bilal Zaman on 02/08/2020.
  */
-public class SpinnerAdapter extends ArrayAdapter<String> {
+public class SpinnerAdapter extends ArrayAdapter<BranchModel> {
 
     private Context context;
-    private ArrayList<String> data;
+    private ArrayList<BranchModel> data;
 
-    public SpinnerAdapter(Context context, int textViewResourseID, ArrayList<String> value) {
+    public SpinnerAdapter(Context context, int textViewResourseID, ArrayList<BranchModel> value) {
         super(context, textViewResourseID, value);
 
         this.context = context;
@@ -37,7 +38,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
     }
 
     @Override
-    public String getItem(int position) {
+    public BranchModel getItem(int position) {
         return data.get(position);
     }
 
@@ -53,7 +54,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
     public View getView(int position, View convertView, ViewGroup parent) {
         // I created a dynamic TextView here, but you can reference your own  custom layout for each spinner item
         TextView label = (TextView) super.getView(position, convertView, parent);
-        label.setTextColor(Color.parseColor("#ffffff"));
+        label.setTextColor(Color.parseColor("#000000"));
         label.setGravity(View.TEXT_ALIGNMENT_TEXT_START|View.TEXT_ALIGNMENT_CENTER | Gravity.CENTER);
 //        label.setGravity(Gravity.CENTER | View.TEXT_ALIGNMENT_VIEW_START);
         label.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.dropdown_icon, 0);
@@ -61,7 +62,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
 
         // Then you can get the current item using the values array (Users array) and the current position
         // You can NOW reference each method you has created in your bean object (User class)
-        label.setText(data.get(position));
+        label.setText(data.get(position).getName());
 
         // And finally return your dynamic (or custom) view for each spinner item
         return label;
@@ -74,7 +75,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
                                 ViewGroup parent) {
         TextView label = (TextView) super.getDropDownView(position, convertView, parent);
         label.setTextColor(Color.parseColor("#676767"));
-        label.setText(data.get(position));
+        label.setText(data.get(position).getName());
         label.setTextSize(14);
         label.setGravity(View.TEXT_ALIGNMENT_TEXT_START|View.TEXT_ALIGNMENT_CENTER | Gravity.CENTER);
         label.setPadding(30, 30, 30, 30);

@@ -30,6 +30,10 @@ public class StudentViewModel extends AndroidViewModel {
         studentRepo.getUserLogin(studentId, password, branchId);
     }
 
+    public void getBranchList() {
+        studentRepo.getBranchList();
+    }
+
     public LiveData<Response> getStudentLogin() {
         return studentRepo.getResponseMutableLiveData();
     }

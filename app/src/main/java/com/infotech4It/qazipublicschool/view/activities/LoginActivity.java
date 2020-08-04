@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +16,10 @@ import androidx.lifecycle.ViewModelProviders;
 import com.infotech4It.qazipublicschool.ApplicationState;
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ActivityLoginBinding;
+import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
 import com.infotech4It.qazipublicschool.view.adapters.SpinnerAdapter;
+import com.infotech4It.qazipublicschool.view.models.BranchModel;
 import com.infotech4It.qazipublicschool.viewModel.StudentViewModel;
 import com.infotech4It.qazipublicschool.viewModel.ViewModelStatus;
 import com.infotech4It.qazipublicschool.webservices.response.Response;
@@ -32,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     ProgressDialog loading;
     private ActivityLoginBinding binding;
     private StudentViewModel studentViewModel;
+    private String branch_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +52,11 @@ public class LoginActivity extends AppCompatActivity {
     private void init() {
         binding.setOnLoginClick(this);
         getLoadingStatus();
-        setSpinnerData();
+
+        if (uiHelper.isNetworkAvailable(this)) {
+//            studentViewModel.getBranchList();
+            setSpinnerData();
+        }
     }
 
     private void getLoadingStatus() {
@@ -72,17 +81,19 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setSpinnerData() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Please Select Branch");
-        arrayList.add("Qazi Apex Grammar School (Venus Campus)");
-        arrayList.add("Qazi Pilot High School");
-        arrayList.add("Qazi Grammer Boys High School");
-        arrayList.add("Qazi Girls High School");
-        arrayList.add("Qazi Grammar Girls School");
-        arrayList.add("Qazi Public Girls School");
-        arrayList.add("Qazi Apex Grammar School (Pak Arab Campus)");
-        binding.spinnerBranches.setAdapter(new SpinnerAdapter(this, android.R.layout.simple_spinner_item,
-                arrayList));
+//        ArrayList<String> arrayList = new ArrayList<>();
+//        arrayList.add("Please Select Branch");
+//        arrayList.add("Qazi Apex Grammar School (Venus Campus)");
+//        arrayList.add("Qazi Pilot High School");
+//        arrayList.add("Qazi Grammer Boys High School");
+//        arrayList.add("Qazi Girls High School");
+//        arrayList.add("Qazi Grammar Girls School");
+//        arrayList.add("Qazi Public Girls School");
+//        arrayList.add("Qazi Apex Grammar School (Pak Arab Campus)");
+//        binding.spinnerBranches.setAdapter(new SpinnerAdapter(this, android.R.layout.simple_spinner_item,
+//                arrayList));
+
+
     }
 
     public void onClick(View view) {
@@ -90,7 +101,8 @@ public class LoginActivity extends AppCompatActivity {
             case R.id.btnLogin: {
                 if (validation()) {
                     if (uiHelper.isNetworkAvailable(this)) {
-                        studentViewModel.getStudentLogin("Qazian-1423", "humabilal", "19");
+                        studentViewModel.getStudentLogin(binding.edtComputerID.getText().toString()
+                                ,binding.edtPassword.getText().toString(), branch_id);
                         getLoginUserData();
                     }
                 }
@@ -103,8 +115,34 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onChanged(Response response) {
                 if (response.getCode() == Constants.SUCCESS_CODE) {
-                    uiHelper.showLongToastInCenter(LoginActivity.this, "User Login Successfully");
-                    uiHelper.openActivity(LoginActivity.this, MainActivity.class);
+                    PreferenceHelper.getInstance().setBol(Constants.IS_OPON_FIRST_TIME, true);
+
+                    if (response.getDataObject().getBranchModelList() != null) {
+                        ArrayList<BranchModel> arrayList = new ArrayList<>();
+                        arrayList = (ArrayList<BranchModel>) response.getDataObject().getBranchModelList();
+                        binding.spinnerBranches.setAdapter(new SpinnerAdapter(LoginActivity.this,
+                                android.R.layout.simple_spinner_item,
+                                arrayList));
+
+                        final ArrayList<BranchModel> finalArrayList = arrayList;
+                        binding.spinnerBranches.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                Toast.makeText(LoginActivity.this,
+                                        "testing", Toast.LENGTH_SHORT).show();
+                                branch_id = String.valueOf(finalArrayList.get(position).getId());
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+                    } else if (response.getDataObject().getStudentModel() != null) {
+                        PreferenceHelper.getInstance().setString(Constants.isLogin, Constants.yes);
+                        uiHelper.showLongToastInCenter(LoginActivity.this, "User Login Successfully");
+                        uiHelper.openActivity(LoginActivity.this, MainActivity.class);
+                    }
                 }
             }
         });
@@ -113,7 +151,11 @@ public class LoginActivity extends AppCompatActivity {
     public boolean validation() {
         boolean check = true;
 
-        if (binding.edtComputerID.getText().toString().isEmpty()) {
+        if (branch_id.equalsIgnoreCase("0")) {
+            uiHelper.showLongToastInCenter(LoginActivity.this, "Please Select the branch");
+            check = false;
+
+        } else if (binding.edtComputerID.getText().toString().isEmpty()) {
             binding.edtComputerID.setError(getString(R.string.empty_computerId));
             check = false;
 
@@ -124,5 +166,18 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return check;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        studentViewModel.getBranchList();
+        getLoginUserData();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        studentViewModel.clear();
     }
 }

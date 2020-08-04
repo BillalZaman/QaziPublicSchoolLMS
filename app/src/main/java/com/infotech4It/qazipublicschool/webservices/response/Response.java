@@ -14,7 +14,7 @@ public class Response implements Serializable {
     private Integer code;
     @SerializedName("data")
     @Expose
-    private DataObject data;
+    private DataObject dataObject;
     @SerializedName("status")
     @Expose
     private Boolean status;
@@ -27,12 +27,12 @@ public class Response implements Serializable {
         this.code = code;
     }
 
-    public DataObject getData() {
-        return data;
+    public DataObject getDataObject() {
+        return dataObject;
     }
 
-    public void setData(DataObject data) {
-        this.data = data;
+    public void setDataObject(DataObject dataObject) {
+        this.dataObject = dataObject;
     }
 
     public Boolean getStatus() {

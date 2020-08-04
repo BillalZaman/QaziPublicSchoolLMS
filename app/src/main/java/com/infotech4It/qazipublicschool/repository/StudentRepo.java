@@ -100,6 +100,44 @@ public class StudentRepo {
         return Observable.just(response);
     }
 
+    public Observable<Response> getBranchList() {
+        viewModelStatus.isLoadingList = true;
+        status.setValue(viewModelStatus);
+
+        userProfileLiveDate = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        responseObservable = apiInterface.getBranchList(uiHelper.getAuthKey());
+        compositeDisposable.add(responseObservable.subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableObserver<Response>() {
+
+            @Override
+            public void onNext(Response _response) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                response = _response;
+                userProfileLiveDate.setValue(response);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                if (response.getCode() == Constants.FAILURE) {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                } else {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                }
+            }
+
+            @Override
+            public void onComplete() {
+                userProfileLiveDate.setValue(response);
+            }
+        }));
+        return Observable.just(response);
+    }
+
     public void clear() {
         compositeDisposable.clear();
     }

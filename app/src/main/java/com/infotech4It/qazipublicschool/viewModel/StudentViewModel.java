@@ -30,6 +30,22 @@ public class StudentViewModel extends AndroidViewModel {
         studentRepo.getUserLogin(studentId, password, branchId);
     }
 
+    public void changePassword(int userId, String oldPassword, String newPassword, String confirmPassword) {
+        studentRepo.changePassword(userId, oldPassword, newPassword, confirmPassword);
+    }
+
+    public void logout(int userId) {
+        studentRepo.logout(userId);
+    }
+
+    public void getNoticeBoard(int userId) {
+        studentRepo.noticeBoard(userId);
+    }
+
+    public void getUserProfile(int userId) {
+        studentRepo.getUserProfile(userId);
+    }
+
     public void getBranchList() {
         studentRepo.getBranchList();
     }

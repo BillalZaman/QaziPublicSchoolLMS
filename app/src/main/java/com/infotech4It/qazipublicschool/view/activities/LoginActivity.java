@@ -17,7 +17,6 @@ import com.infotech4It.qazipublicschool.ApplicationState;
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ActivityLoginBinding;
 import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
-import com.infotech4It.qazipublicschool.helpers.SpecialSharedPrefHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
 import com.infotech4It.qazipublicschool.view.adapters.SpinnerAdapter;
 import com.infotech4It.qazipublicschool.view.models.BranchModel;
@@ -100,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (validation()) {
                     if (uiHelper.isNetworkAvailable(this)) {
                         studentViewModel.getStudentLogin(binding.edtComputerID.getText().toString()
-                                ,binding.edtPassword.getText().toString(), branch_id);
+                                , binding.edtPassword.getText().toString(), branch_id);
                         getLoginUserData();
                     }
                 }
@@ -140,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
                         StudentModel studentModel = new StudentModel();
                         studentModel = response.getDataObject().getStudentModel();
                         PreferenceHelper.getInstance().setString(Constants.isLogin, Constants.yes);
-                        PreferenceHelper.getInstance().setInt(Constants.userInfo,studentModel.getId());
+                        PreferenceHelper.getInstance().setInt(Constants.userInfo, studentModel.getId());
                         uiHelper.showLongToastInCenter(LoginActivity.this, "User Login Successfully");
                         uiHelper.openActivity(LoginActivity.this, MainActivity.class);
                     }

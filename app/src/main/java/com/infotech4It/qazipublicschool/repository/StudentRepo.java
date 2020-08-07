@@ -138,6 +138,185 @@ public class StudentRepo {
         return Observable.just(response);
     }
 
+    public Observable<Response> changePassword(int userId, String oldPassword, String newPassword, String confirmPassword) {
+        viewModelStatus.isLoadingList = true;
+        status.setValue(viewModelStatus);
+
+        HashMap<String, Object> jsonParms = new HashMap<>();
+        jsonParms.put("user_id", userId);
+        jsonParms.put("old_password", oldPassword);
+        jsonParms.put("new_password", newPassword);
+        jsonParms.put("confirm_password", confirmPassword);
+        final RequestBody requestBody =
+                RequestBody.create(MediaType.get("application/json; charset=utf-8"),
+                        (new JSONObject(jsonParms)).toString());
+
+        userProfileLiveDate = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        responseObservable = apiInterface.changePassword(uiHelper.getAuthKey(), requestBody);
+        compositeDisposable.add(responseObservable.subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableObserver<Response>() {
+
+            @Override
+            public void onNext(Response _response) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                response = _response;
+                userProfileLiveDate.setValue(response);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                if (response.getCode() == Constants.FAILURE) {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                } else {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                }
+            }
+
+            @Override
+            public void onComplete() {
+                userProfileLiveDate.setValue(response);
+            }
+        }));
+        return Observable.just(response);
+    }
+
+    public Observable<Response> logout(int userId) {
+        viewModelStatus.isLoadingList = true;
+        status.setValue(viewModelStatus);
+
+        HashMap<String, Object> jsonParms = new HashMap<>();
+        jsonParms.put("user_id", userId);
+        final RequestBody requestBody =
+                RequestBody.create(MediaType.get("application/json; charset=utf-8"),
+                        (new JSONObject(jsonParms)).toString());
+
+        userProfileLiveDate = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        responseObservable = apiInterface.logout(uiHelper.getAuthKey(), requestBody);
+        compositeDisposable.add(responseObservable.subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableObserver<Response>() {
+
+            @Override
+            public void onNext(Response _response) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                response = _response;
+                userProfileLiveDate.setValue(response);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                if (response.getCode() == Constants.FAILURE) {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                } else {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                }
+            }
+
+            @Override
+            public void onComplete() {
+                userProfileLiveDate.setValue(response);
+            }
+        }));
+        return Observable.just(response);
+    }
+
+    public Observable<Response> noticeBoard(int userId) {
+        viewModelStatus.isLoadingList = true;
+        status.setValue(viewModelStatus);
+
+        HashMap<String, Object> jsonParms = new HashMap<>();
+        jsonParms.put("user_id", userId);
+        final RequestBody requestBody =
+                RequestBody.create(MediaType.get("application/json; charset=utf-8"),
+                        (new JSONObject(jsonParms)).toString());
+
+        userProfileLiveDate = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        responseObservable = apiInterface.getNoticeBoard(uiHelper.getAuthKey(), requestBody);
+        compositeDisposable.add(responseObservable.subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableObserver<Response>() {
+
+            @Override
+            public void onNext(Response _response) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                response = _response;
+                userProfileLiveDate.setValue(response);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                if (response.getCode() == Constants.FAILURE) {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                } else {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                }
+            }
+
+            @Override
+            public void onComplete() {
+                userProfileLiveDate.setValue(response);
+            }
+        }));
+        return Observable.just(response);
+    }
+
+    public Observable<Response> getUserProfile(int userId) {
+        viewModelStatus.isLoadingList = true;
+        status.setValue(viewModelStatus);
+
+        HashMap<String, Object> jsonParms = new HashMap<>();
+        jsonParms.put("user_id", userId);
+        final RequestBody requestBody =
+                RequestBody.create(MediaType.get("application/json; charset=utf-8"),
+                        (new JSONObject(jsonParms)).toString());
+
+        userProfileLiveDate = new MutableLiveData<>();
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        responseObservable = apiInterface.getUserProfile(uiHelper.getAuthKey(), requestBody);
+        compositeDisposable.add(responseObservable.subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableObserver<Response>() {
+
+            @Override
+            public void onNext(Response _response) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                response = _response;
+                userProfileLiveDate.setValue(response);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                viewModelStatus.isLoadingList = false;
+                status.setValue(viewModelStatus);
+                if (response.getCode() == Constants.FAILURE) {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                } else {
+                    uiHelper.showLongToastInCenter(application, e.getMessage());
+                }
+            }
+
+            @Override
+            public void onComplete() {
+                userProfileLiveDate.setValue(response);
+            }
+        }));
+        return Observable.just(response);
+    }
+
     public void clear() {
         compositeDisposable.clear();
     }

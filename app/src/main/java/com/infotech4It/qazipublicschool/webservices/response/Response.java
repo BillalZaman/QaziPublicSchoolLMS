@@ -18,6 +18,9 @@ public class Response implements Serializable {
     @SerializedName("status")
     @Expose
     private Boolean status;
+    @SerializedName("messages")
+    @Expose
+    private String message;
 
     public int getCode() {
         return code;
@@ -41,5 +44,13 @@ public class Response implements Serializable {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

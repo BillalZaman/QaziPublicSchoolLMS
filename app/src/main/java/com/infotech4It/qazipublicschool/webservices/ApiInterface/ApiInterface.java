@@ -25,10 +25,27 @@ public interface ApiInterface {
     @POST(Request.GET_SUBJECT_DETAIL)
     Observable<Response> getStudentSubjectDetail(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
 
+    @POST(Request.CHANGE_PASSWORD)
+    Observable<Response> changePassword(@Header("Authorization") String authkey, @Body RequestBody changePassword);
+
+    @POST(Request.LOGOUT)
+    Observable<Response> logout(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
+
+    @POST(Request.GET_NOTICE_BOARD)
+    Observable<Response> getNoticeBoard(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
+
+    @POST(Request.GET_USER_PROFILE)
+    Observable<Response> getUserProfile(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
+
+
     interface Request {
         String LOGIN = "site/login";
         String GET_BRANCH_LIST = "branch/get-list";
         String GET_SUBJECT_LIST = "subject/get-student-subjects";
         String GET_SUBJECT_DETAIL = "subject/get-subject-data";
+        String CHANGE_PASSWORD = "user/change-password";
+        String LOGOUT = "site/logout";
+        String GET_NOTICE_BOARD = "notice/list";
+        String GET_USER_PROFILE = "user/get-profile";
     }
 }

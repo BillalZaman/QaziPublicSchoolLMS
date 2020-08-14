@@ -62,6 +62,8 @@ public class AllLessonsFragment extends Fragment {
             );
 
             getSubjectListDetailData();
+        } else {
+            uiHelper.showLongToastInCenter(getContext(), getString(R.string.no_internet));
         }
 
     }

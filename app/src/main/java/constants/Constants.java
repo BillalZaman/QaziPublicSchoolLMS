@@ -23,6 +23,8 @@ public class Constants {
 
     public static final String IS_OPON_FIRST_TIME = "isOpenFirstTime";
     public static final String userInfo = "userInfo";
+    public static final String userName = "userName";
+    public static final String userFather = "userFather";
     public static final String subjectID = "subjectID";
 
 }

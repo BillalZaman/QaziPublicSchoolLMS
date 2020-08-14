@@ -56,7 +56,6 @@ public class SpinnerAdapter extends ArrayAdapter<BranchModel> {
         TextView label = (TextView) super.getView(position, convertView, parent);
         label.setTextColor(Color.parseColor("#000000"));
         label.setGravity(View.TEXT_ALIGNMENT_TEXT_START|View.TEXT_ALIGNMENT_CENTER | Gravity.CENTER);
-//        label.setGravity(Gravity.CENTER | View.TEXT_ALIGNMENT_VIEW_START);
         label.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.dropdown_icon, 0);
         label.setTextSize(12);
 
@@ -76,9 +75,9 @@ public class SpinnerAdapter extends ArrayAdapter<BranchModel> {
         TextView label = (TextView) super.getDropDownView(position, convertView, parent);
         label.setTextColor(Color.parseColor("#676767"));
         label.setText(data.get(position).getName());
-        label.setTextSize(14);
+        label.setTextSize(12);
         label.setGravity(View.TEXT_ALIGNMENT_TEXT_START|View.TEXT_ALIGNMENT_CENTER | Gravity.CENTER);
-        label.setPadding(30, 30, 30, 30);
+        label.setPadding(20, 20, 20, 30);
 
         return label;
     }

@@ -7,6 +7,7 @@ import com.infotech4It.qazipublicschool.view.models.BranchModel;
 import com.infotech4It.qazipublicschool.view.models.RecentAssessmentModel;
 import com.infotech4It.qazipublicschool.view.models.StudentModel;
 import com.infotech4It.qazipublicschool.view.models.StudentSubjectModel;
+import com.infotech4It.qazipublicschool.view.models.TeacherData;
 
 import java.io.Serializable;
 import java.util.List;
@@ -39,6 +40,21 @@ public class DataObject implements Serializable {
     @SerializedName("AllAssessments")
     @Expose
     private List<RecentAssessmentModel> allAssessments = null;
+    @SerializedName("VideoLinkData")
+    @Expose
+    private String videoLinkData;
+    @SerializedName("ImageData")
+    @Expose
+    private List<Object> imageData = null;
+    @SerializedName("TeacherData")
+    @Expose
+    private TeacherData teacherData;
+    @SerializedName("TodoList")
+    @Expose
+    private String todoList;
+    @SerializedName("HomeWork")
+    @Expose
+    private String homeWork;
 
 
     public StudentModel getStudentModel() {
@@ -95,5 +111,45 @@ public class DataObject implements Serializable {
 
     public void setAllAssessments(List<RecentAssessmentModel> allAssessments) {
         this.allAssessments = allAssessments;
+    }
+
+    public String getVideoLinkData() {
+        return videoLinkData;
+    }
+
+    public void setVideoLinkData(String videoLinkData) {
+        this.videoLinkData = videoLinkData;
+    }
+
+    public List<Object> getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(List<Object> imageData) {
+        this.imageData = imageData;
+    }
+
+    public TeacherData getTeacherData() {
+        return teacherData;
+    }
+
+    public void setTeacherData(TeacherData teacherData) {
+        this.teacherData = teacherData;
+    }
+
+    public String getTodoList() {
+        return todoList;
+    }
+
+    public void setTodoList(String todoList) {
+        this.todoList = todoList;
+    }
+
+    public String getHomeWork() {
+        return homeWork;
+    }
+
+    public void setHomeWork(String homeWork) {
+        this.homeWork = homeWork;
     }
 }

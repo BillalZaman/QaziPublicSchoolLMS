@@ -41,7 +41,6 @@ public class SubjectFragment extends Fragment {
     private ArrayList<StudentSubjectModel> dataList = new ArrayList<>();
     private SubjectViewModel subjectViewModel;
     private Boolean flag_loading = false;
-    private int pageno = 0;
 
     public SubjectFragment() {
         // Required empty public constructor
@@ -63,32 +62,11 @@ public class SubjectFragment extends Fragment {
         setRecyclerView();
         if (uiHelper.isNetworkAvailable(getContext())) {
             subjectViewModel.getStudentSubjectList(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
-                    pageno
+                    0
             );
-
             getSubjectListData();
         }
 
-
-        binding.recyclerview.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                if (flag_loading == false) {
-                    flag_loading = true;
-                    pageno = pageno + 1;
-                    subjectViewModel.getStudentSubjectList(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
-                            pageno
-                    );
-                    getSubjectListData();
-                }
-            }
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-
-
-            }
-        });
     }
 
     private void getSubjectListData() {

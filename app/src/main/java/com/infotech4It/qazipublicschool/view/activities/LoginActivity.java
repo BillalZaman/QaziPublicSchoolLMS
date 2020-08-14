@@ -125,8 +125,6 @@ public class LoginActivity extends AppCompatActivity {
                         binding.spinnerBranches.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                Toast.makeText(LoginActivity.this,
-                                        "testing", Toast.LENGTH_SHORT).show();
                                 branch_id = String.valueOf(finalArrayList.get(position).getId());
                             }
 
@@ -140,7 +138,9 @@ public class LoginActivity extends AppCompatActivity {
                         studentModel = response.getDataObject().getStudentModel();
                         PreferenceHelper.getInstance().setString(Constants.isLogin, Constants.yes);
                         PreferenceHelper.getInstance().setInt(Constants.userInfo, studentModel.getId());
-                        uiHelper.showLongToastInCenter(LoginActivity.this, "User Login Successfully");
+                        PreferenceHelper.getInstance().setString(Constants.userName, studentModel.getClientName());
+                        PreferenceHelper.getInstance().setString(Constants.userFather, studentModel.getFatherName());
+                        uiHelper.showLongToastInCenter(LoginActivity.this, "User Login Successfully"+ response.getMessage());
                         uiHelper.openActivity(LoginActivity.this, MainActivity.class);
                     }
                 }

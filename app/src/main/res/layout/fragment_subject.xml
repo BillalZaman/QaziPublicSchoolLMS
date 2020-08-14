@@ -12,11 +12,11 @@
         android:layout_height="match_parent"
         tools:context=".fragments.SubjectFragment">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toolbar"
             android:layout_width="0dp"
             android:layout_height="54dp"
+            android:visibility="gone"
             android:background="@color/color_darkred"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

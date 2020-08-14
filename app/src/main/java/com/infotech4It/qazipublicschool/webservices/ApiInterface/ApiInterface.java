@@ -37,6 +37,8 @@ public interface ApiInterface {
     @POST(Request.GET_USER_PROFILE)
     Observable<Response> getUserProfile(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
 
+    @POST(Request.GET_LESSON_DATA)
+    Observable<Response> getLessonData(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
 
     interface Request {
         String LOGIN = "site/login";
@@ -47,5 +49,6 @@ public interface ApiInterface {
         String LOGOUT = "site/logout";
         String GET_NOTICE_BOARD = "notice/list";
         String GET_USER_PROFILE = "user/get-profile";
+        String GET_LESSON_DATA = "subject/get-lesson";
     }
 }

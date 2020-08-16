@@ -2,8 +2,12 @@ package com.infotech4It.qazipublicschool.interfaces;
 
 import com.infotech4It.qazipublicschool.fragments.AllAssessmentsFragment;
 import com.infotech4It.qazipublicschool.fragments.AllLessonsFragment;
+import com.infotech4It.qazipublicschool.fragments.CommentFragment;
 import com.infotech4It.qazipublicschool.fragments.FragmentNavigationDrawer;
+import com.infotech4It.qazipublicschool.fragments.HomeWorkFragment;
+import com.infotech4It.qazipublicschool.fragments.ImageFragment;
 import com.infotech4It.qazipublicschool.fragments.MoreFragment;
+import com.infotech4It.qazipublicschool.fragments.TodoListFragment;
 import com.infotech4It.qazipublicschool.fragments.VideoFragment;
 import com.infotech4It.qazipublicschool.view.activities.ProfileActivity;
 import com.infotech4It.qazipublicschool.fragments.RecentAssessmentsFragment;
@@ -66,4 +70,12 @@ public interface ApplicationComponent {
     void injectUIHelper(ProfileActivity allAssessmentsFragment);
 
     void injectUIHelper(VideoFragment videoFragment);
+
+    void injectUIHelper(ImageFragment videoFragment);
+
+    void injectUIHelper(TodoListFragment videoFragment);
+
+    void injectUIHelper(HomeWorkFragment videoFragment);
+
+    void injectUIHelper(CommentFragment videoFragment);
 }

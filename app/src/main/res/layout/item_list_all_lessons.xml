@@ -6,7 +6,7 @@
     <data>
         <variable
             name="onAllLessonModel"
-            type="com.infotech4It.qazipublicschool.view.models.AllLessonModel" />
+            type="com.infotech4It.qazipublicschool.view.models.RecentLessonModel" />
     </data>
 
     <androidx.cardview.widget.CardView

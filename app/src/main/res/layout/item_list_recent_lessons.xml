@@ -37,7 +37,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:text="@{onRecentLessonModel.name}"
+                android:text="@{onRecentLessonModel.groundColor}"
                 android:textColor="@color/colorDark"
                 android:textSize="@dimen/medium"
                 android:fontFamily="@font/avenir_black"

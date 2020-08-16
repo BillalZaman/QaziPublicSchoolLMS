@@ -30,8 +30,8 @@ public class SubjectViewModel extends AndroidViewModel {
         subjectRepo.getStudentSubjectList(userId, pageNo);
     }
 
-    public void getStudentSubjectDetail(int userId, int subjectID) {
-        subjectRepo.getStudentSubjectDetail(userId, subjectID);
+    public void getStudentSubjectDetail() {
+        subjectRepo.getStudentSubjectDetail();
     }
 
     public void getLessonData(int userId, int lessonID){

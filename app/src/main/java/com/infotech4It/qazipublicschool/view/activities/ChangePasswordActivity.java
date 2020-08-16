@@ -58,8 +58,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
                                 binding.edtConfirmPassword.getText().toString()
                         );
                     }
+                  //  getStudentData();
                 }
-                getStudentData();
             }
         }
     }
@@ -120,4 +120,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
         return check;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        studentViewModel.clear();
+    }
 }

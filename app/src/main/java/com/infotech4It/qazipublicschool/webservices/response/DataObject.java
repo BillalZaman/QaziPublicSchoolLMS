@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import com.infotech4It.qazipublicschool.view.models.AllLessonModel;
 import com.infotech4It.qazipublicschool.view.models.BranchModel;
 import com.infotech4It.qazipublicschool.view.models.RecentAssessmentModel;
+import com.infotech4It.qazipublicschool.view.models.RecentLessonModel;
 import com.infotech4It.qazipublicschool.view.models.StudentModel;
 import com.infotech4It.qazipublicschool.view.models.StudentSubjectModel;
 import com.infotech4It.qazipublicschool.view.models.TeacherData;
@@ -33,13 +34,14 @@ public class DataObject implements Serializable {
     private List<AllLessonModel> recentLessons = null;
     @SerializedName("AllLessons")
     @Expose
-    private List<AllLessonModel> allLessons = null;
+    private List<RecentLessonModel> allLessons = null;
     @SerializedName("RecentAssessments")
     @Expose
     private List<RecentAssessmentModel> recentAssessments = null;
     @SerializedName("AllAssessments")
     @Expose
     private List<RecentAssessmentModel> allAssessments = null;
+
     @SerializedName("VideoLinkData")
     @Expose
     private String videoLinkData;
@@ -55,6 +57,7 @@ public class DataObject implements Serializable {
     @SerializedName("HomeWork")
     @Expose
     private String homeWork;
+
 
 
     public StudentModel getStudentModel() {
@@ -89,11 +92,11 @@ public class DataObject implements Serializable {
         this.recentLessons = recentLessons;
     }
 
-    public List<AllLessonModel> getAllLessons() {
+    public List<RecentLessonModel> getAllLessons() {
         return allLessons;
     }
 
-    public void setAllLessons(List<AllLessonModel> allLessons) {
+    public void setAllLessons(List<RecentLessonModel> allLessons) {
         this.allLessons = allLessons;
     }
 

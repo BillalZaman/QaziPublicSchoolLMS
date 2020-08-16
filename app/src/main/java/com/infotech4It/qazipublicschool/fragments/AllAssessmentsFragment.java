@@ -58,9 +58,15 @@ public class AllAssessmentsFragment extends Fragment {
     private void initData() {
         getLoadingStatus();
         setRecyclerView();
+
+        String uID = String.valueOf(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0));
+        String subjectId = String.valueOf(PreferenceHelper.getInstance().getInt(Constants.subjectID, 0));
+
+        int userId = Integer.parseInt(uID);
+        int subId = Integer.parseInt(subjectId);
+
         if (uiHelper.isNetworkAvailable(getContext())) {
-            subjectViewModel.getStudentSubjectDetail(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
-                    PreferenceHelper.getInstance().getInt(Constants.subjectID, 0)
+            subjectViewModel.getStudentSubjectDetail(
             );
             getSubjectListDetailData();
         }

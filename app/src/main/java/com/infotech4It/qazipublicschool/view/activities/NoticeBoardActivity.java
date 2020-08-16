@@ -1,4 +1,4 @@
-package com.infotech4It.qazipublicschool.fragments;
+package com.infotech4It.qazipublicschool.view.activities;
 
 import android.os.Bundle;
 

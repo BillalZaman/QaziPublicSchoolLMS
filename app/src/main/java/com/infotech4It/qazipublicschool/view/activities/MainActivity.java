@@ -17,7 +17,6 @@ import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ActivityMainBinding;
 import com.infotech4It.qazipublicschool.dialogs.LogoutFragmentDialog;
 import com.infotech4It.qazipublicschool.fragments.FragmentNavigationDrawer;
-import com.infotech4It.qazipublicschool.fragments.NoticeBoardActivity;
 import com.infotech4It.qazipublicschool.fragments.SubjectFragment;
 import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.helpers.SpecialSharedPrefHelper;

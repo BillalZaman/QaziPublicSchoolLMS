@@ -12,11 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ItemListRecentLessonsBinding;
+import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.view.activities.SubjectDetailActivity;
 import com.infotech4It.qazipublicschool.view.models.AllLessonModel;
 import com.infotech4It.qazipublicschool.view.models.RecentLessonModel;
 
 import java.util.ArrayList;
+
+import constants.Constants;
 
 /**
  * Created by Bilal Zaman on 18/07/2020.
@@ -45,13 +48,14 @@ public class RecentLessonAdapter extends RecyclerView.Adapter<RecentLessonAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.binding.setOnRecentLessonModel(data.get(position));
 
         holder.binding.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SubjectDetailActivity.class);
+                PreferenceHelper.getInstance().setInt(Constants.subjectID, data.get(position).getChapter().getId());
                 context.startActivity(intent);
             }
         });

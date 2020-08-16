@@ -20,10 +20,10 @@ public class RecentAssessmentModel implements Serializable {
     private String detail;
     @SerializedName("overview")
     @Expose
-    private Object overview;
+    private String overview;
     @SerializedName("user_id")
     @Expose
-    private Integer userId;
+    private String userId;
     @SerializedName("class_is")
     @Expose
     private Integer classIs;
@@ -63,6 +63,9 @@ public class RecentAssessmentModel implements Serializable {
     @SerializedName("deleted_at")
     @Expose
     private Object deletedAt;
+    @SerializedName("subject")
+    @Expose
+    private Subject subject;
 
     public Integer getId() {
         return id;
@@ -88,19 +91,19 @@ public class RecentAssessmentModel implements Serializable {
         this.detail = detail;
     }
 
-    public Object getOverview() {
+    public String getOverview() {
         return overview;
     }
 
-    public void setOverview(Object overview) {
+    public void setOverview(String overview) {
         this.overview = overview;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -206,5 +209,13 @@ public class RecentAssessmentModel implements Serializable {
 
     public void setDeletedAt(Object deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }

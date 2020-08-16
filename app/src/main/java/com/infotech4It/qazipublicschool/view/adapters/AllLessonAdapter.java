@@ -16,6 +16,7 @@ import com.infotech4It.qazipublicschool.databinding.ItemListRecentAssessmentsBin
 import com.infotech4It.qazipublicschool.view.activities.SubjectDetailActivity;
 import com.infotech4It.qazipublicschool.view.models.AllLessonModel;
 import com.infotech4It.qazipublicschool.view.models.RecentAssessmentModel;
+import com.infotech4It.qazipublicschool.view.models.RecentLessonModel;
 
 import java.util.ArrayList;
 
@@ -25,14 +26,14 @@ import java.util.ArrayList;
 public class AllLessonAdapter extends RecyclerView.Adapter<AllLessonAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<AllLessonModel> data;
+    private ArrayList<RecentLessonModel> data;
 
     public AllLessonAdapter(Context context) {
         this.context = context;
         this.data = new ArrayList<>();
     }
 
-    public void setList(ArrayList<AllLessonModel> data) {
+    public void setList(ArrayList<RecentLessonModel> data) {
         this.data = data;
         notifyDataSetChanged();
     }

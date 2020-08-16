@@ -62,8 +62,7 @@ public class RecentAssessmentsFragment extends Fragment {
         getLoadingStatus();
         setRecyclerView();
         if (uiHelper.isNetworkAvailable(getContext())) {
-            subjectViewModel.getStudentSubjectDetail(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
-                    PreferenceHelper.getInstance().getInt(Constants.subjectID, 0)
+            subjectViewModel.getStudentSubjectDetail(
             );
             getSubjectListDetailData();
         }

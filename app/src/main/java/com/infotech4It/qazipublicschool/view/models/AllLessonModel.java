@@ -12,21 +12,72 @@ public class AllLessonModel implements Serializable {
     @SerializedName("id")
     @Expose
     private Integer id;
+    @SerializedName("barcode")
+    @Expose
+    private String barcode;
+    @SerializedName("border_color")
+    @Expose
+    private String borderColor;
+    @SerializedName("care")
+    @Expose
+    private String care;
+    @SerializedName("category")
+    @Expose
+    private String category;
+    @SerializedName("design")
+    @Expose
+    private String design;
+    @SerializedName("designer")
+    @Expose
+    private String designer;
+    @SerializedName("ground_color")
+    @Expose
+    private String groundColor;
+    @SerializedName("image_1")
+    @Expose
+    private Object image1;
+    @SerializedName("image_2")
+    @Expose
+    private Object image2;
+    @SerializedName("image_3")
+    @Expose
+    private Object image3;
+    @SerializedName("image_4")
+    @Expose
+    private Object image4;
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("description")
+    @SerializedName("origin")
     @Expose
-    private String description;
-    @SerializedName("image")
+    private Object origin;
+    @SerializedName("price")
     @Expose
-    private String image;
-    @SerializedName("parent_id")
+    private Integer price;
+    @SerializedName("quantity")
     @Expose
-    private Integer parentId;
+    private Object quantity;
+    @SerializedName("shape")
+    @Expose
+    private Object shape;
+    @SerializedName("size_cm")
+    @Expose
+    private Object sizeCm;
+    @SerializedName("size_feet")
+    @Expose
+    private Object sizeFeet;
+    @SerializedName("sku")
+    @Expose
+    private Object sku;
+    @SerializedName("style")
+    @Expose
+    private String style;
     @SerializedName("type")
     @Expose
-    private Integer type;
+    private String type;
+    @SerializedName("published")
+    @Expose
+    private Boolean published;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -36,6 +87,18 @@ public class AllLessonModel implements Serializable {
     @SerializedName("deleted_at")
     @Expose
     private Object deletedAt;
+    @SerializedName("overview")
+    @Expose
+    private String overview;
+    @SerializedName("shipping_info")
+    @Expose
+    private String shippingInfo;
+    @SerializedName("category_id")
+    @Expose
+    private Integer categoryId;
+    @SerializedName("chapter")
+    @Expose
+    private Chapter chapter;
 
     public Integer getId() {
         return id;
@@ -43,6 +106,94 @@ public class AllLessonModel implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
+    }
+
+    public String getBorderColor() {
+        return borderColor;
+    }
+
+    public void setBorderColor(String borderColor) {
+        this.borderColor = borderColor;
+    }
+
+    public String getCare() {
+        return care;
+    }
+
+    public void setCare(String care) {
+        this.care = care;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDesign() {
+        return design;
+    }
+
+    public void setDesign(String design) {
+        this.design = design;
+    }
+
+    public String getDesigner() {
+        return designer;
+    }
+
+    public void setDesigner(String designer) {
+        this.designer = designer;
+    }
+
+    public String getGroundColor() {
+        return groundColor;
+    }
+
+    public void setGroundColor(String groundColor) {
+        this.groundColor = groundColor;
+    }
+
+    public Object getImage1() {
+        return image1;
+    }
+
+    public void setImage1(Object image1) {
+        this.image1 = image1;
+    }
+
+    public Object getImage2() {
+        return image2;
+    }
+
+    public void setImage2(Object image2) {
+        this.image2 = image2;
+    }
+
+    public Object getImage3() {
+        return image3;
+    }
+
+    public void setImage3(Object image3) {
+        this.image3 = image3;
+    }
+
+    public Object getImage4() {
+        return image4;
+    }
+
+    public void setImage4(Object image4) {
+        this.image4 = image4;
     }
 
     public String getName() {
@@ -53,36 +204,84 @@ public class AllLessonModel implements Serializable {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public Object getOrigin() {
+        return origin;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setOrigin(Object origin) {
+        this.origin = origin;
     }
 
-    public String getImage() {
-        return image;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
-    public Integer getParentId() {
-        return parentId;
+    public Object getQuantity() {
+        return quantity;
     }
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
+    public void setQuantity(Object quantity) {
+        this.quantity = quantity;
     }
 
-    public Integer getType() {
+    public Object getShape() {
+        return shape;
+    }
+
+    public void setShape(Object shape) {
+        this.shape = shape;
+    }
+
+    public Object getSizeCm() {
+        return sizeCm;
+    }
+
+    public void setSizeCm(Object sizeCm) {
+        this.sizeCm = sizeCm;
+    }
+
+    public Object getSizeFeet() {
+        return sizeFeet;
+    }
+
+    public void setSizeFeet(Object sizeFeet) {
+        this.sizeFeet = sizeFeet;
+    }
+
+    public Object getSku() {
+        return sku;
+    }
+
+    public void setSku(Object sku) {
+        this.sku = sku;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    public String getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
+    }
+
+    public Boolean getPublished() {
+        return published;
+    }
+
+    public void setPublished(Boolean published) {
+        this.published = published;
     }
 
     public String getCreatedAt() {
@@ -107,5 +306,37 @@ public class AllLessonModel implements Serializable {
 
     public void setDeletedAt(Object deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
+    public String getShippingInfo() {
+        return shippingInfo;
+    }
+
+    public void setShippingInfo(String shippingInfo) {
+        this.shippingInfo = shippingInfo;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public Chapter getChapter() {
+        return chapter;
+    }
+
+    public void setChapter(Chapter chapter) {
+        this.chapter = chapter;
     }
 }

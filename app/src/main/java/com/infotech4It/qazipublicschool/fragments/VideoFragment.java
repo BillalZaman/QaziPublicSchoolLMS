@@ -44,12 +44,12 @@ public class VideoFragment extends Fragment {
         subjectViewModel = ViewModelProviders.of(this).get(SubjectViewModel.class);
         ApplicationState.getApp().getApplicationComponent().injectUIHelper(this);
         init();
-        loadVideo();
         return binding.getRoot();
     }
 
     private void init() {
         getLoadingStatus();
+
         if (uiHelper.isNetworkAvailable(getContext())) {
             subjectViewModel.getLessonData(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
                     PreferenceHelper.getInstance().getInt(Constants.subjectID, 0)
@@ -65,13 +65,15 @@ public class VideoFragment extends Fragment {
             public void onChanged(Response response) {
                 if (response.getCode() == Constants.SUCCESS_CODE) {
                     if (response.getDataObject().getVideoLinkData() != null) {
-                        if (!response.getDataObject().getVideoLinkData().equals("")) {
-                            videoStr = response.getDataObject().getVideoLinkData();
-                        } else {
-                            binding.webViewvideo.setVisibility(View.GONE);
-                            binding.imgNotice.setVisibility(View.VISIBLE);
-                            binding.txtNotice.setVisibility(View.VISIBLE);
-                        }
+                        videoStr = response.getDataObject().getVideoLinkData();
+                        loadVideo();
+//                        if (!response.getDataObject().getVideoLinkData().equals("")) {
+//                            videoStr = response.getDataObject().getVideoLinkData();
+//                        } else {
+//                            binding.webViewvideo.setVisibility(View.GONE);
+//                            binding.imgNotice.setVisibility(View.VISIBLE);
+//                            binding.txtNotice.setVisibility(View.VISIBLE);
+//                        }
                     }
                 }
             }

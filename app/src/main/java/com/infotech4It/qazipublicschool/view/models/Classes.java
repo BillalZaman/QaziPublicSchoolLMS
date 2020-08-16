@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 /**
- * Created by Bilal Zaman on 18/07/2020.
+ * Created by Bilal Zaman on 15/08/2020.
  */
-public class RecentLessonModel implements Serializable {
+public class Classes implements Serializable {
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -36,9 +36,9 @@ public class RecentLessonModel implements Serializable {
     @SerializedName("deleted_at")
     @Expose
     private Object deletedAt;
-    @SerializedName("classes")
-    @Expose
-    private Classes classes;
+//    @SerializedName("classes")
+//    @Expose
+//    private Classes_ classes;
 
     public Integer getId() {
         return id;
@@ -112,11 +112,11 @@ public class RecentLessonModel implements Serializable {
         this.deletedAt = deletedAt;
     }
 
-    public Classes getClasses() {
-        return classes;
-    }
-
-    public void setClasses(Classes classes) {
-        this.classes = classes;
-    }
+//    public Classes_ getClasses() {
+//        return classes;
+//    }
+//
+//    public void setClasses(Classes_ classes) {
+//        this.classes = classes;
+//    }
 }

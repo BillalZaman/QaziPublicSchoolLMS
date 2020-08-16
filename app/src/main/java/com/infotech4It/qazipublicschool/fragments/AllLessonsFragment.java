@@ -19,6 +19,7 @@ import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
 import com.infotech4It.qazipublicschool.view.adapters.AllLessonAdapter;
 import com.infotech4It.qazipublicschool.view.models.AllLessonModel;
+import com.infotech4It.qazipublicschool.view.models.RecentLessonModel;
 import com.infotech4It.qazipublicschool.viewModel.SubjectViewModel;
 import com.infotech4It.qazipublicschool.viewModel.ViewModelStatus;
 import com.infotech4It.qazipublicschool.webservices.response.Response;
@@ -35,7 +36,7 @@ public class AllLessonsFragment extends Fragment {
     UIHelper uiHelper;
     private FragmentAllLessonsBinding binding;
     private AllLessonAdapter adapter;
-    private ArrayList<AllLessonModel> data = new ArrayList<>();
+    private ArrayList<RecentLessonModel> data = new ArrayList<>();
     private SubjectViewModel subjectViewModel;
 
     public AllLessonsFragment() {
@@ -57,8 +58,7 @@ public class AllLessonsFragment extends Fragment {
         getLoadingStatus();
         setRecyclerView();
         if (uiHelper.isNetworkAvailable(getContext())) {
-            subjectViewModel.getStudentSubjectDetail(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
-                    PreferenceHelper.getInstance().getInt(Constants.subjectID, 0)
+            subjectViewModel.getStudentSubjectDetail(
             );
 
             getSubjectListDetailData();
@@ -75,7 +75,7 @@ public class AllLessonsFragment extends Fragment {
                 if (response.getCode() == Constants.SUCCESS_CODE) {
                     if (response.getDataObject().getAllLessons() != null) {
                         if (response.getDataObject().getAllLessons().size() != 0) {
-                            data = (ArrayList<AllLessonModel>) response.getDataObject().getAllLessons();
+                            data = (ArrayList<RecentLessonModel>) response.getDataObject().getAllLessons();
                             if (adapter != null && data != null) {
                                 adapter.setList(data);
                             }

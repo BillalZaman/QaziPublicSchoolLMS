@@ -7,7 +7,9 @@ import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 /**
  * Created by Bilal Zaman on 03/08/2020.
@@ -22,8 +24,11 @@ public interface ApiInterface {
     @POST(Request.GET_SUBJECT_LIST)
     Observable<Response> getStudentSubjectList(@Header("Authorization") String authkey, @Body RequestBody getSubjectListRequest);
 
+    @Multipart
     @POST(Request.GET_SUBJECT_DETAIL)
-    Observable<Response> getStudentSubjectDetail(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
+    Observable<Response> getStudentSubjectDetail(@Header("Authorization") String authkey,
+                                                 @Part("user_id") int userId,
+                                                 @Part("subject_id") int subjectId);
 
     @POST(Request.CHANGE_PASSWORD)
     Observable<Response> changePassword(@Header("Authorization") String authkey, @Body RequestBody changePassword);

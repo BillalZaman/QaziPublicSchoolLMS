@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.MutableLiveData;
 
 import com.infotech4It.qazipublicschool.ApplicationState;
+import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
 import com.infotech4It.qazipublicschool.viewModel.ViewModelStatus;
 import com.infotech4It.qazipublicschool.webservices.ApiClient;
@@ -99,19 +100,26 @@ public class SubjectRepo {
         return Observable.just(response);
     }
 
-    public Observable<Response> getStudentSubjectDetail(int userId, int subjectId) {
+    public Observable<Response> getStudentSubjectDetail() {
         viewModelStatus.isLoadingList = true;
         status.setValue(viewModelStatus);
-        HashMap<String, Object> jsonParms = new HashMap<>();
-        jsonParms.put("user_id", userId);
-        jsonParms.put("subject_id", subjectId);
-        final RequestBody requestBody =
-                RequestBody.create(MediaType.get("application/json; charset=utf-8"),
-                        (new JSONObject(jsonParms)).toString());
+//        HashMap<String, Object> jsonParms = new HashMap<>();
+//        jsonParms.put("user_id", userId);
+//        jsonParms.put("subject_id", subjectId);
+//        final RequestBody requestBody =
+//                RequestBody.create(MediaType.get("application/json; charset=utf-8"),
+//                        (new JSONObject(jsonParms)).toString());
+
+
+//        RequestBody userID = RequestBody.create(MediaType.parse("text/palin"), userId);
+//        RequestBody subject_Id = RequestBody.create(MediaType.parse("text/palin"), subjectID);
 
         userProfileLiveDate = new MutableLiveData<>();
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        responseObservable = apiInterface.getStudentSubjectDetail(uiHelper.getAuthKey(), requestBody);
+        responseObservable = apiInterface.getStudentSubjectDetail(uiHelper.getAuthKey(),
+                PreferenceHelper.getInstance().getInt(Constants.userInfo, 0)
+                , PreferenceHelper.getInstance().getInt(Constants.subjectID, 0));
+
         compositeDisposable.add(responseObservable.subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableObserver<Response>() {
 
@@ -156,7 +164,7 @@ public class SubjectRepo {
 
         userProfileLiveDate = new MutableLiveData<>();
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        responseObservable = apiInterface.getNoticeBoard(uiHelper.getAuthKey(), requestBody);
+        responseObservable = apiInterface.getLessonData(uiHelper.getAuthKey(), requestBody);
         compositeDisposable.add(responseObservable.subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableObserver<Response>() {
 

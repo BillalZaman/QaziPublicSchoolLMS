@@ -58,10 +58,10 @@
         <HorizontalScrollView
             android:id="@+id/constraintLayout4"
             android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:scrollbars="none"
-            android:nestedScrollingEnabled="true"
+            android:layout_height="90dp"
             android:fillViewport="true"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -70,6 +70,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/unSelectTabColor">
+
+                <ImageView
+                    android:id="@+id/imgVideoLec"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/lessonsblack"
+                    app:layout_constraintEnd_toStartOf="@+id/view13"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tab_recent_lessons"
@@ -88,7 +98,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/tab_all_lessons"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgVideoLec" />
 
                 <View
                     android:id="@+id/view13"
@@ -97,6 +107,16 @@
                     android:background="@color/divider_color"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tab_all_lessons"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgCamLec"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/images_black"
+                    app:layout_constraintEnd_toEndOf="@+id/tab_all_lessons"
+                    app:layout_constraintStart_toStartOf="@+id/tab_all_lessons"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -116,7 +136,8 @@
                     app:layout_constraintEnd_toStartOf="@+id/tab_recent_assessment"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tab_recent_lessons"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgCamLec"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <View
                     android:id="@+id/view14"
@@ -125,6 +146,16 @@
                     android:background="@color/divider_color"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tab_recent_assessment"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgTodoLec"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/to_do_black"
+                    app:layout_constraintEnd_toEndOf="@+id/tab_recent_assessment"
+                    app:layout_constraintStart_toStartOf="@+id/tab_recent_assessment"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -144,7 +175,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/tab_all_assessments"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tab_all_lessons"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgTodoLec" />
 
                 <View
                     android:id="@+id/view15"
@@ -153,6 +184,16 @@
                     android:background="@color/divider_color"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tab_all_assessments"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgHomeLec"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/home_work__black"
+                    app:layout_constraintEnd_toEndOf="@+id/tab_all_assessments"
+                    app:layout_constraintStart_toStartOf="@+id/tab_all_assessments"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -170,7 +211,7 @@
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tab_recent_assessment"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgHomeLec" />
 
 
                 <View
@@ -182,9 +223,19 @@
                     app:layout_constraintEnd_toEndOf="@+id/tab_all_assessments"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/imgCommentLec"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/comments_black"
+                    app:layout_constraintEnd_toEndOf="@+id/tab_comment"
+                    app:layout_constraintStart_toStartOf="@+id/tab_comment"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/tab_comment"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@color/colorWhite"
                     android:fontFamily="@font/poppins_semibold"
@@ -198,7 +249,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tab_all_assessments"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgCommentLec" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

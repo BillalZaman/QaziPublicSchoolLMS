@@ -23,10 +23,15 @@ public class FillBlankAdapter extends RecyclerView.Adapter<FillBlankAdapter.View
     private ArrayList<FillBlankModel> data;
     private FillBlankInterface fillBlankInterface;
 
-    public FillBlankAdapter(Context context, ArrayList<FillBlankModel> data) {
+    public FillBlankAdapter(Context context) {
         this.context = context;
-        this.data = data;
+        this.data = new ArrayList<>();
 //        fillBlankInterface = (FillBlankInterface) context;
+    }
+
+    public void setList(ArrayList<FillBlankModel> data){
+        this.data = data;
+        notifyDataSetChanged();
     }
 
     @NonNull

@@ -45,6 +45,9 @@ public interface ApiInterface {
     @POST(Request.GET_LESSON_DATA)
     Observable<Response> getLessonData(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
 
+    @POST(Request.GET_FILL_IN_BLANKS)
+    Observable<Response> getFillBlanks(@Header("Authorization") String authkey, @Body RequestBody getSubjectDetailRequest);
+
     interface Request {
         String LOGIN = "site/login";
         String GET_BRANCH_LIST = "branch/get-list";
@@ -55,5 +58,6 @@ public interface ApiInterface {
         String GET_NOTICE_BOARD = "notice/list";
         String GET_USER_PROFILE = "user/get-profile";
         String GET_LESSON_DATA = "subject/get-lesson";
+        String GET_FILL_IN_BLANKS = "test/get-fill-in-blanks";
     }
 }

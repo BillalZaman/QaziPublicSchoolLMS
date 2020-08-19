@@ -42,6 +42,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
         uiHelper.replaceFragment(this, R.id.framelayout, videoFragment);
         binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         binding.tabRecentLessons.setTextColor(getResources().getColor(R.color.colorWhite));
+        binding.imgVideoLec.setImageResource(R.drawable.video_white);
+        binding.imgVideoLec.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
     public void onClick(View view) {
@@ -51,6 +53,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 uiHelper.replaceFragment(this, R.id.framelayout, videoFragment);
                 binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 binding.tabRecentLessons.setTextColor(getResources().getColor(R.color.colorWhite));
+                binding.imgVideoLec.setImageResource(R.drawable.video_white);
+                binding.imgVideoLec.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 resetAllColorPreferences(1);
                 break;
             }
@@ -59,6 +63,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 uiHelper.replaceFragment(this, R.id.framelayout, imageFragment);
                 binding.tabAllLessons.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 binding.tabAllLessons.setTextColor(getResources().getColor(R.color.colorWhite));
+                binding.imgCamLec.setImageResource(R.drawable.images_white);
+                binding.imgCamLec.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 resetAllColorPreferences(2);
                 break;
             }
@@ -67,6 +73,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 uiHelper.replaceFragment(this, R.id.framelayout, recentAssessmentsFragment);
                 binding.tabRecentAssessment.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 binding.tabRecentAssessment.setTextColor(getResources().getColor(R.color.colorWhite));
+                binding.imgTodoLec.setImageResource(R.drawable.to_do_white);
+                binding.imgTodoLec.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 resetAllColorPreferences(3);
                 break;
             }
@@ -75,6 +83,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 uiHelper.replaceFragment(this, R.id.framelayout, allAssessmentsFragment);
                 binding.tabAllAssessments.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 binding.tabAllAssessments.setTextColor(getResources().getColor(R.color.colorWhite));
+                binding.imgHomeLec.setImageResource(R.drawable.home_work__white);
+                binding.imgHomeLec.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 resetAllColorPreferences(4);
                 break;
             }
@@ -83,6 +93,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 uiHelper.replaceFragment(this, R.id.framelayout, commentFragment);
                 binding.tabComment.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 binding.tabComment.setTextColor(getResources().getColor(R.color.colorWhite));
+                binding.imgCommentLec.setImageResource(R.drawable.comments_white);
+                binding.imgCommentLec.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 resetAllColorPreferences(5);
                 break;
             }
@@ -99,80 +111,119 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
             binding.tabAllLessons.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabAllLessons.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgCamLec.setImageResource(R.drawable.images_black);
+            binding.imgCamLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabRecentAssessment.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabRecentAssessment.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgTodoLec.setImageResource(R.drawable.to_do_black);
+            binding.imgTodoLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabAllAssessments.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabAllAssessments.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgHomeLec.setImageResource(R.drawable.home_work__black);
+            binding.imgHomeLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabComment.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabComment.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgCommentLec.setImageResource(R.drawable.comments_black);
+            binding.imgCommentLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
         } else if (tabPosition == 2){
             binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabRecentLessons.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgVideoLec.setImageResource(R.drawable.video_black);
+            binding.imgVideoLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
 //            binding.tabAllLessons.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 //            binding.tabAllLessons.setTextColor(getResources().getColor(R.color.colorDark));
 
             binding.tabRecentAssessment.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabRecentAssessment.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgTodoLec.setImageResource(R.drawable.to_do_black);
+            binding.imgTodoLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabAllAssessments.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabAllAssessments.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgHomeLec.setImageResource(R.drawable.home_work__black);
+            binding.imgHomeLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabComment.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabComment.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgCommentLec.setImageResource(R.drawable.comments_black);
+            binding.imgCommentLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
         } else if (tabPosition == 3){
             binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabRecentLessons.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgVideoLec.setImageResource(R.drawable.video_black);
+            binding.imgVideoLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabAllLessons.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabAllLessons.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgCamLec.setImageResource(R.drawable.images_black);
+            binding.imgCamLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
 //            binding.tabRecentAssessment.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 //            binding.tabRecentAssessment.setTextColor(getResources().getColor(R.color.colorDark));
 
             binding.tabAllAssessments.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabAllAssessments.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgHomeLec.setImageResource(R.drawable.home_work__black);
+            binding.imgHomeLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabComment.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabComment.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgCommentLec.setImageResource(R.drawable.comments_black);
+            binding.imgCommentLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
         } else if (tabPosition == 4){
             binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabRecentLessons.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgVideoLec.setImageResource(R.drawable.video_black);
+            binding.imgVideoLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabAllLessons.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabAllLessons.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgCamLec.setImageResource(R.drawable.images_black);
+            binding.imgCamLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabRecentAssessment.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabRecentAssessment.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgTodoLec.setImageResource(R.drawable.to_do_black);
+            binding.imgTodoLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
 //            binding.tabAllAssessments.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 //            binding.tabAllAssessments.setTextColor(getResources().getColor(R.color.colorDark));
 
             binding.tabComment.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabComment.setTextColor(getResources().getColor(R.color.colorDark));
-        }
+            binding.imgCommentLec.setImageResource(R.drawable.comments_black);
+            binding.imgCommentLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
-        else if (tabPosition == 5){
+        } else if (tabPosition == 5){
             binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabRecentLessons.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgVideoLec.setImageResource(R.drawable.video_black);
+            binding.imgVideoLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabAllLessons.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabAllLessons.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgCamLec.setImageResource(R.drawable.images_black);
+            binding.imgCamLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabRecentAssessment.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabRecentAssessment.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgTodoLec.setImageResource(R.drawable.to_do_black);
+            binding.imgTodoLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
             binding.tabAllAssessments.setBackgroundColor(getResources().getColor(R.color.colorWhite));
             binding.tabAllAssessments.setTextColor(getResources().getColor(R.color.colorDark));
+            binding.imgHomeLec.setImageResource(R.drawable.home_work__black);
+            binding.imgHomeLec.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
-            binding.tabComment.setBackgroundColor(getResources().getColor(R.color.colorDark));
-            binding.tabComment.setTextColor(getResources().getColor(R.color.colorWhite));
+//            binding.tabComment.setBackgroundColor(getResources().getColor(R.color.colorDark));
+//            binding.tabComment.setTextColor(getResources().getColor(R.color.colorWhite));
         }
     }
 }

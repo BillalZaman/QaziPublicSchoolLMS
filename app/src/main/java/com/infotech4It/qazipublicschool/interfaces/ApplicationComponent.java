@@ -7,8 +7,10 @@ import com.infotech4It.qazipublicschool.fragments.FragmentNavigationDrawer;
 import com.infotech4It.qazipublicschool.fragments.HomeWorkFragment;
 import com.infotech4It.qazipublicschool.fragments.ImageFragment;
 import com.infotech4It.qazipublicschool.fragments.MoreFragment;
+import com.infotech4It.qazipublicschool.fragments.QuestionAnswerFragment;
 import com.infotech4It.qazipublicschool.fragments.TodoListFragment;
 import com.infotech4It.qazipublicschool.fragments.VideoFragment;
+import com.infotech4It.qazipublicschool.repository.SubjectivePartRepo;
 import com.infotech4It.qazipublicschool.view.activities.ProfileActivity;
 import com.infotech4It.qazipublicschool.fragments.RecentAssessmentsFragment;
 import com.infotech4It.qazipublicschool.fragments.RecentLessonsFragment;
@@ -78,4 +80,8 @@ public interface ApplicationComponent {
     void injectUIHelper(HomeWorkFragment videoFragment);
 
     void injectUIHelper(CommentFragment videoFragment);
+
+    void injectUIHelper(QuestionAnswerFragment videoFragment);
+
+    void injectUIHelper(SubjectivePartRepo subjectivePartRepo);
 }

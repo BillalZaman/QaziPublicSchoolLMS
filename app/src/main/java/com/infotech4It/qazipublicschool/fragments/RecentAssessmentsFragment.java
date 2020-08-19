@@ -2,6 +2,9 @@ package com.infotech4It.qazipublicschool.fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -9,20 +12,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.infotech4It.qazipublicschool.ApplicationState;
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.FragmentRecentAssessmentsBinding;
-import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
 import com.infotech4It.qazipublicschool.view.adapters.RecentAssessmentAdapter;
-import com.infotech4It.qazipublicschool.view.adapters.RecentLessonAdapter;
-import com.infotech4It.qazipublicschool.view.models.AllLessonModel;
 import com.infotech4It.qazipublicschool.view.models.RecentAssessmentModel;
-import com.infotech4It.qazipublicschool.view.models.RecentLessonModel;
 import com.infotech4It.qazipublicschool.viewModel.SubjectViewModel;
 import com.infotech4It.qazipublicschool.viewModel.ViewModelStatus;
 import com.infotech4It.qazipublicschool.webservices.response.Response;

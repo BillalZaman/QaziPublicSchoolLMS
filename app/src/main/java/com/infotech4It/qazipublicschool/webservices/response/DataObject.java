@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.infotech4It.qazipublicschool.view.models.AllLessonModel;
 import com.infotech4It.qazipublicschool.view.models.BranchModel;
+import com.infotech4It.qazipublicschool.view.models.FillBlankModel;
 import com.infotech4It.qazipublicschool.view.models.RecentAssessmentModel;
 import com.infotech4It.qazipublicschool.view.models.RecentLessonModel;
 import com.infotech4It.qazipublicschool.view.models.StudentModel;
@@ -58,6 +59,9 @@ public class DataObject implements Serializable {
     @Expose
     private String homeWork;
 
+    @SerializedName("QuestionsData")
+    @Expose
+    private List<FillBlankModel> questionsData = null;
 
 
     public StudentModel getStudentModel() {
@@ -154,5 +158,13 @@ public class DataObject implements Serializable {
 
     public void setHomeWork(String homeWork) {
         this.homeWork = homeWork;
+    }
+
+    public List<FillBlankModel> getQuestionsData() {
+        return questionsData;
+    }
+
+    public void setQuestionsData(List<FillBlankModel> questionsData) {
+        this.questionsData = questionsData;
     }
 }

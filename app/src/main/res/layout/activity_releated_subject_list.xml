@@ -58,10 +58,10 @@
         <HorizontalScrollView
             android:id="@+id/constraintLayout4"
             android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:scrollbars="none"
-            android:nestedScrollingEnabled="true"
+            android:layout_height="90dp"
             android:fillViewport="true"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -71,24 +71,34 @@
                 android:layout_height="match_parent"
                 android:background="@color/unSelectTabColor">
 
+                <ImageView
+                    android:id="@+id/imgRecentLesson"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/lessonsblack"
+                    app:layout_constraintEnd_toStartOf="@+id/view13"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/tab_recent_lessons"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:background="@color/colorWhite"
                     android:fontFamily="@font/poppins_semibold"
                     android:gravity="center"
+                    android:onClick="@{(view)->onRelatedTabClick.onClick(view)}"
                     android:paddingLeft="18dp"
                     android:paddingRight="18dp"
                     android:text="RECENT LESSONS"
-                    android:textSize="12sp"
                     android:textColor="@color/colorDark"
-                    android:background="@color/colorWhite"
-                    android:onClick="@{(view)->onRelatedTabClick.onClick(view)}"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tab_all_lessons"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgRecentLesson" />
 
                 <View
                     android:id="@+id/view13"
@@ -99,24 +109,34 @@
                     app:layout_constraintEnd_toStartOf="@+id/tab_all_lessons"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/imgAllLesson"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/alllessonsblack"
+                    app:layout_constraintEnd_toEndOf="@+id/tab_all_lessons"
+                    app:layout_constraintStart_toStartOf="@+id/tab_all_lessons"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/tab_all_lessons"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:background="@color/colorWhite"
                     android:fontFamily="@font/poppins_semibold"
                     android:gravity="center"
                     android:onClick="@{(view)->onRelatedTabClick.onClick(view)}"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
                     android:text="ALL LESSONS"
                     android:textColor="@color/colorDark"
                     android:textSize="12sp"
-                    android:paddingLeft="18dp"
-                    android:background="@color/colorWhite"
-                    android:paddingRight="18dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tab_recent_assessment"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tab_recent_lessons"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgAllLesson" />
 
                 <View
                     android:id="@+id/view14"
@@ -127,24 +147,34 @@
                     app:layout_constraintEnd_toStartOf="@+id/tab_recent_assessment"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/imgRecentAssessment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/recentassessment"
+                    app:layout_constraintEnd_toEndOf="@+id/tab_recent_assessment"
+                    app:layout_constraintStart_toStartOf="@+id/tab_recent_assessment"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/tab_recent_assessment"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:background="@color/colorWhite"
                     android:fontFamily="@font/poppins_semibold"
                     android:gravity="center"
                     android:onClick="@{(view)->onRelatedTabClick.onClick(view)}"
-                    android:text="RECENT ASSESSMENT"
                     android:paddingLeft="18dp"
-                    android:textColor="@color/colorDark"
-                    android:background="@color/colorWhite"
                     android:paddingRight="18dp"
+                    android:text="RECENT ASSESSMENT"
+                    android:textColor="@color/colorDark"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tab_all_assessments"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tab_all_lessons"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgRecentAssessment" />
 
                 <View
                     android:id="@+id/view15"
@@ -155,24 +185,35 @@
                     app:layout_constraintEnd_toStartOf="@+id/tab_all_assessments"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/imgAllAssessment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/assessmentallblack"
+                    app:layout_constraintEnd_toEndOf="@+id/tab_all_assessments"
+                    app:layout_constraintStart_toStartOf="@+id/tab_all_assessments"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible" />
+
                 <TextView
                     android:id="@+id/tab_all_assessments"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:background="@color/colorWhite"
                     android:fontFamily="@font/poppins_semibold"
                     android:gravity="center"
-                    android:text="ALL ASSESSMENTS"
-                    android:textColor="@color/colorDark"
-                    android:background="@color/colorWhite"
                     android:onClick="@{(view)->onRelatedTabClick.onClick(view)}"
                     android:paddingLeft="18dp"
                     android:paddingRight="18dp"
+                    android:text="ALL ASSESSMENTS"
+                    android:textColor="@color/colorDark"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tab_recent_assessment"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgAllAssessment" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

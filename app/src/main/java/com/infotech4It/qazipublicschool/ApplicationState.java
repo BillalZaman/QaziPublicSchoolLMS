@@ -9,9 +9,7 @@ import com.infotech4It.qazipublicschool.module.internetModule.InternetModule;
 
 import constants.Constants;
 
-/**
- * Created by Bilal Zaman on 17/07/2020.
- */
+
 public class ApplicationState extends Application {
 
     ApplicationComponent applicationComponent;

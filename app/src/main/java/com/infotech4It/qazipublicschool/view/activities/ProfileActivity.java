@@ -59,6 +59,8 @@ public class ProfileActivity extends AppCompatActivity {
             public void onChanged(Response response) {
                 if (response.getCode() == Constants.SUCCESS_CODE) {
                     binding.setOnProfileModel(response.getDataObject().getStudentModel());
+                    PreferenceHelper.getInstance().setString(Constants.className,
+                            response.getDataObject().getStudentModel().getSection());
                 }
             }
         });

@@ -52,7 +52,7 @@ public class TodoListFragment extends Fragment {
 
     private void init() {
         getLoadingStatus();
-
+        loadLocallyData();
         if (uiHelper.isNetworkAvailable(getContext())) {
             subjectViewModel.getLessonData(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
                     PreferenceHelper.getInstance().getInt(Constants.subjectID, 0)
@@ -62,6 +62,12 @@ public class TodoListFragment extends Fragment {
         } else {
             uiHelper.showLongToastInCenter(getContext(), getString(R.string.no_internet));
         }
+    }
+    private void loadLocallyData() {
+        binding.txtUserName.setText(PreferenceHelper.getInstance().getString(Constants.userName,""));
+        binding.txtClassName.setText(PreferenceHelper.getInstance().getString(Constants.className,""));
+        binding.txtSubject.setText(PreferenceHelper.getInstance().getString(Constants.subjectName,""));
+        binding.txtLecTopic.setText(PreferenceHelper.getInstance().getString(Constants.lessonName,""));
     }
 
     private void getSubjectListDetailData() {

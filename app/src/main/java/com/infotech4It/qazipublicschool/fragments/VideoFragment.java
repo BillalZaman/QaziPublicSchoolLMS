@@ -48,6 +48,7 @@ public class VideoFragment extends Fragment {
     }
 
     private void init() {
+        loadLocallyData();
         getLoadingStatus();
 
         if (uiHelper.isNetworkAvailable(getContext())) {
@@ -57,6 +58,13 @@ public class VideoFragment extends Fragment {
 
             getSubjectListDetailData();
         }
+    }
+
+    private void loadLocallyData() {
+        binding.txtUserName.setText(PreferenceHelper.getInstance().getString(Constants.userName,""));
+        binding.txtClassName.setText(PreferenceHelper.getInstance().getString(Constants.className,""));
+        binding.txtSubject.setText(PreferenceHelper.getInstance().getString(Constants.subjectName,""));
+        binding.txtLecTopic.setText(PreferenceHelper.getInstance().getString(Constants.lessonName,""));
     }
 
     private void getSubjectListDetailData() {

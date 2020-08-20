@@ -38,6 +38,9 @@ public class SubjectViewModel extends AndroidViewModel {
         subjectRepo.getLessonData(userId,lessonID);
     }
 
+    public void getLessonComment(int userId, int lessonID){
+        subjectRepo.getLessonComment(userId,lessonID);
+    }
 
     public LiveData<Response> getStudentLogin() {
         return subjectRepo.getResponseMutableLiveData();

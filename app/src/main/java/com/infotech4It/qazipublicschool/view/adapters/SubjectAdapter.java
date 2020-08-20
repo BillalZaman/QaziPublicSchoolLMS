@@ -67,6 +67,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
             public void onClick(View v) {
                 subjectListInterface.onSubjectList(position, data.get(position).getName());
                 PreferenceHelper.getInstance().setInt(Constants.subjectID, data.get(position).getId());
+                PreferenceHelper.getInstance().setString(Constants.subjectName, data.get(position).getName());
             }
         });
     }

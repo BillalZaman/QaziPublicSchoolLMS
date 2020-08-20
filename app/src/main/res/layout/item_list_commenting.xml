@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="onCommentMOdel"
             type="com.infotech4It.qazipublicschool.view.models.CommentingModel" />
@@ -22,12 +22,12 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
+            android:fontFamily="@font/poppins_semibold"
             android:gravity="center|start"
             android:hint="June 29-07-2020"
+            android:text="@{onCommentMOdel.createdAt}"
             android:textColor="@color/color_darkred"
-            android:fontFamily="@font/poppins_semibold"
             android:textSize="@dimen/medium"
-            android:text="@{onCommentMOdel.commentDate}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,12 +37,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_regular"
             android:gravity="center|start"
             android:hint="Hello Students!"
+            android:text="@{onCommentMOdel.msg}"
             android:textColor="@color/colorPrimaryDark"
-            android:fontFamily="@font/poppins_regular"
             android:textSize="@dimen/medium"
-            android:text="@{onCommentMOdel.commentTeacher}"
             app:layout_constraintEnd_toEndOf="@+id/txtCommentDate"
             app:layout_constraintStart_toStartOf="@+id/txtCommentDate"
             app:layout_constraintTop_toBottomOf="@+id/txtCommentDate" />
@@ -53,12 +53,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppins_regular"
             android:gravity="end|center"
             android:hint="Yes Maam!"
             android:textColor="@color/colorPrimaryDark"
-            android:fontFamily="@font/poppins_regular"
             android:textSize="@dimen/medium"
-            android:text="@{onCommentMOdel.commentStudent}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/txtTeacherComment"
             app:layout_constraintStart_toStartOf="@+id/txtTeacherComment"

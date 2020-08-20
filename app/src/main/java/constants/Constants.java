@@ -27,5 +27,8 @@ public class Constants {
     public static final String userFather = "userFather";
     public static final String subjectID = "subjectID";
     public static final String testID = "testId";
+    public static final String className = "className";
+    public static final String subjectName = "subjectName";
+    public static final String lessonName = "lessonName";
 
 }

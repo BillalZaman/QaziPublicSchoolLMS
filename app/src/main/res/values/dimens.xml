@@ -15,4 +15,6 @@
     <dimen name="standard_margin">16dp</dimen>
     <dimen name="standard_margin2">20dp</dimen>
     <dimen name="margin_25dp">25dp</dimen>
+
+<!--    <dimen name="design_bottom_navigation_elevation">10dp</dimen>-->
 </resources>

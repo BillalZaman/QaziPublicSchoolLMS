@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:text="Hello! This is a question and it is asked to the student who is currently viewing this."
+        />
+
+    <RadioGroup
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/question"
+        android:id="@+id/answerGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            >-->
+
+
+            <RadioButton
+                android:id="@+id/optionA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello This Is option A"
+                />
+
+
+            <RadioButton
+                android:id="@+id/optionB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello This Is option B"
+                />
+
+
+            <RadioButton
+                android:id="@+id/optionC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello This Is option C"
+                />
+
+
+            <RadioButton
+                android:id="@+id/optionD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello This Is option D"
+                />
+
+<!--        </LinearLayout>-->
+
+    </RadioGroup>
+
+</RelativeLayout>

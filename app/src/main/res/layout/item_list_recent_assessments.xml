@@ -40,7 +40,7 @@
                 android:textColor="@color/colorDark"
                 android:textSize="@dimen/medium"
                 android:fontFamily="@font/avenir_black"
-                android:text="@{onRecentAssessmentModel.assessmentName}"
+                android:text="@{onRecentAssessmentModel.testName}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +56,7 @@
                 android:textColor="@color/colorDark"
                 android:textSize="@dimen/small_medium"
                 android:fontFamily="@font/avenir_light"
-                android:text="@{onRecentAssessmentModel.assessmentDate}"
+                android:text="@{onRecentAssessmentModel.updatedAt}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textview56"
                 app:layout_constraintStart_toStartOf="@+id/txtLessonName"
@@ -83,7 +83,7 @@
                 android:textColor="@color/colorDark"
                 android:textSize="@dimen/small_medium"
                 android:fontFamily="@font/avenir_light"
-                android:text="@{onRecentAssessmentModel.assessmentMarks}"
+                android:text="@{``+onRecentAssessmentModel.totalMarks}"
                 app:layout_constraintBottom_toBottomOf="@+id/textview56"
                 app:layout_constraintEnd_toEndOf="@+id/txtLessonName"
                 app:layout_constraintTop_toTopOf="@+id/textview56" />

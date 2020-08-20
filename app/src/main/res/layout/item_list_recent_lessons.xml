@@ -6,7 +6,7 @@
     <data>
         <variable
             name="onRecentLessonModel"
-            type="com.infotech4It.qazipublicschool.view.models.RecentLessonModel" />
+            type="com.infotech4It.qazipublicschool.view.models.AllLessonModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -37,7 +37,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:text="@{onRecentLessonModel.lessonName}"
+                android:text="@{onRecentLessonModel.groundColor}"
                 android:textColor="@color/colorDark"
                 android:textSize="@dimen/medium"
                 android:fontFamily="@font/avenir_black"
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
-                android:text="@{onRecentLessonModel.lessonData}"
+                android:text="@{onRecentLessonModel.createdAt}"
                 android:textColor="@color/colorDark"
                 android:textSize="@dimen/small_medium"
                 android:fontFamily="@font/avenir_light"

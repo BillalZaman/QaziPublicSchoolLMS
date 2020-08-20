@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="onCommentMOdel"
+            type="com.infotech4It.qazipublicschool.view.models.CommentingModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtCommentDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center|start"
+            android:hint="June 29-07-2020"
+            android:textColor="@color/color_darkred"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/medium"
+            android:text="@{onCommentMOdel.commentDate}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtTeacherComment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center|start"
+            android:hint="Hello Students!"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/medium"
+            android:text="@{onCommentMOdel.commentTeacher}"
+            app:layout_constraintEnd_toEndOf="@+id/txtCommentDate"
+            app:layout_constraintStart_toStartOf="@+id/txtCommentDate"
+            app:layout_constraintTop_toBottomOf="@+id/txtCommentDate" />
+
+        <TextView
+            android:id="@+id/txtStudentComment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="end|center"
+            android:hint="Yes Maam!"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/medium"
+            android:text="@{onCommentMOdel.commentStudent}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtTeacherComment"
+            app:layout_constraintStart_toStartOf="@+id/txtTeacherComment"
+            app:layout_constraintTop_toBottomOf="@+id/txtTeacherComment" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

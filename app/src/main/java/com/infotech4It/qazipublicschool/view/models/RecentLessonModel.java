@@ -1,30 +1,122 @@
 package com.infotech4It.qazipublicschool.view.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
 /**
  * Created by Bilal Zaman on 18/07/2020.
  */
-public class RecentLessonModel {
-    private String lessonName;
-    private String lessonData;
+public class RecentLessonModel implements Serializable {
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("description")
+    @Expose
+    private String description;
+    @SerializedName("image")
+    @Expose
+    private String image;
+    @SerializedName("parent_id")
+    @Expose
+    private Integer parentId;
+    @SerializedName("type")
+    @Expose
+    private Integer type;
+    @SerializedName("created_at")
+    @Expose
+    private String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
+    @SerializedName("deleted_at")
+    @Expose
+    private Object deletedAt;
+    @SerializedName("classes")
+    @Expose
+    private Classes classes;
 
-    public RecentLessonModel(String lessonName, String lessonData) {
-        this.lessonName = lessonName;
-        this.lessonData = lessonData;
+    public Integer getId() {
+        return id;
     }
 
-    public String getLessonName() {
-        return lessonName;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setLessonName(String lessonName) {
-        this.lessonName = lessonName;
+    public String getName() {
+        return name;
     }
 
-    public String getLessonData() {
-        return lessonData;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setLessonData(String lessonData) {
-        this.lessonData = lessonData;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Object getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(Object deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public Classes getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Classes classes) {
+        this.classes = classes;
     }
 }

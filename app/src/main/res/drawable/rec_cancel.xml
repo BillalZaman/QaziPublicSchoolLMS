@@ -3,18 +3,18 @@
     android:id="@+id/listview_background_shape">
 
     <padding
-        android:bottom="16dp"
-        android:left="16dp"
-        android:right="16dp"
-        android:top="16dp" />
+        android:bottom="14dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="14dp" />
 
     <corners android:radius="12dp" />
 
     <gradient
         android:angle="45"
-        android:startColor="#420A0A"
-        android:centerColor="#65040F"
-        android:endColor="#45060F"/>
+        android:startColor="#590A1A"
+        android:centerColor="#590A1A"
+        android:endColor="#590A1A"/>
 </shape>
 
     <!--    android:startColor="#7f39f5"-->

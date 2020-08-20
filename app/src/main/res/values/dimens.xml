@@ -7,4 +7,12 @@
     <dimen name="medium_large">18sp</dimen>
     <dimen name="large">20sp</dimen>
     <dimen name="extra_large">22sp</dimen>
+
+    <dimen name="spacing_control">4dp</dimen>
+    <dimen name="spacing_control_half">2dp</dimen>
+    <dimen name="spacing_standard">8dp</dimen>
+    <dimen name="spacing_standard2">10dp</dimen>
+    <dimen name="standard_margin">16dp</dimen>
+    <dimen name="standard_margin2">20dp</dimen>
+    <dimen name="margin_25dp">25dp</dimen>
 </resources>

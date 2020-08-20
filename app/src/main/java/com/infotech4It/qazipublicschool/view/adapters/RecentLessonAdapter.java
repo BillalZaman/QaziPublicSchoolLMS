@@ -1,7 +1,9 @@
 package com.infotech4It.qazipublicschool.view.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -10,9 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ItemListRecentLessonsBinding;
+import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
+import com.infotech4It.qazipublicschool.view.activities.SubjectDetailActivity;
+import com.infotech4It.qazipublicschool.view.models.AllLessonModel;
 import com.infotech4It.qazipublicschool.view.models.RecentLessonModel;
 
 import java.util.ArrayList;
+
+import constants.Constants;
 
 /**
  * Created by Bilal Zaman on 18/07/2020.
@@ -20,14 +27,14 @@ import java.util.ArrayList;
 public class RecentLessonAdapter extends RecyclerView.Adapter<RecentLessonAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<RecentLessonModel> data;
+    private ArrayList<AllLessonModel> data;
 
     public RecentLessonAdapter(Context context) {
         this.context = context;
         this.data = new ArrayList<>();
     }
 
-    public void setList(ArrayList<RecentLessonModel> data) {
+    public void setList(ArrayList<AllLessonModel> data) {
         this.data = data;
         notifyDataSetChanged();
     }
@@ -41,8 +48,17 @@ public class RecentLessonAdapter extends RecyclerView.Adapter<RecentLessonAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.binding.setOnRecentLessonModel(data.get(position));
+
+        holder.binding.cardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SubjectDetailActivity.class);
+                PreferenceHelper.getInstance().setInt(Constants.subjectID, data.get(position).getChapter().getId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

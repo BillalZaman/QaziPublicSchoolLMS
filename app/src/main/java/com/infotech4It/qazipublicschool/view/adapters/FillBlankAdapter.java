@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ItemListQuestionAnswerBinding;
 import com.infotech4It.qazipublicschool.interfaces.FillBlankInterface;
+import com.infotech4It.qazipublicschool.interfaces.PositionInterface;
 import com.infotech4It.qazipublicschool.view.models.FillBlankModel;
 
 import java.util.ArrayList;
@@ -22,10 +23,12 @@ public class FillBlankAdapter extends RecyclerView.Adapter<FillBlankAdapter.View
     private Context context;
     private ArrayList<FillBlankModel> data;
     private FillBlankInterface fillBlankInterface;
+//    private PositionInterface positionInterface;
 
     public FillBlankAdapter(Context context) {
         this.context = context;
         this.data = new ArrayList<>();
+//        positionInterface = (PositionInterface) context;
 //        fillBlankInterface = (FillBlankInterface) context;
     }
 
@@ -46,6 +49,10 @@ public class FillBlankAdapter extends RecyclerView.Adapter<FillBlankAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setOnFillModel(data.get(position));
 //        fillBlankInterface.authenticateAnswer(data.get(position).getAnswer(), position);
+
+        int questionnumber = position+1;
+        holder.binding.txtQuestion.setText("Qno"+questionnumber+" : "+data.get(position).getqEng());
+//        positionInterface.position_(position, holder.binding.edtAnswer.getText().toString());
     }
 
 

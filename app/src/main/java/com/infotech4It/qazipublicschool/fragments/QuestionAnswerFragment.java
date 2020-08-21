@@ -17,6 +17,7 @@ import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.FragmentQuestionAnswerBinding;
 import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
+import com.infotech4It.qazipublicschool.interfaces.PositionInterface;
 import com.infotech4It.qazipublicschool.view.adapters.FillBlankAdapter;
 import com.infotech4It.qazipublicschool.view.adapters.RecentAssessmentAdapter;
 import com.infotech4It.qazipublicschool.view.models.FillBlankModel;
@@ -32,7 +33,7 @@ import javax.inject.Inject;
 
 import constants.Constants;
 
-public class QuestionAnswerFragment extends Fragment{
+public class QuestionAnswerFragment extends Fragment {
     private FragmentQuestionAnswerBinding binding;
     private ArrayList<FillBlankModel> data = new ArrayList<>();
     private FillBlankAdapter adapter;
@@ -40,6 +41,8 @@ public class QuestionAnswerFragment extends Fragment{
     @Inject
     UIHelper uiHelper;
     private SubjectivePartViewModel subjectivePartViewModel;
+    private int position_ans;
+    private String ans_final;
 
     public QuestionAnswerFragment() {
         // Required empty public constructor
@@ -67,6 +70,12 @@ public class QuestionAnswerFragment extends Fragment{
             getTestData();
         }
 
+        binding.btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uiHelper.showLongToastInCenter(getContext(), "Working is in progress");
+            }
+        });
     }
 
     private void getTestData() {
@@ -82,6 +91,7 @@ public class QuestionAnswerFragment extends Fragment{
                             }
                         } else {
                             binding.recyclerview.setVisibility(View.GONE);
+                            binding.btnSave.setVisibility(View.GONE);
                             binding.imgNotice.setVisibility(View.VISIBLE);
                             binding.txtNotice.setVisibility(View.VISIBLE);
                         }
@@ -126,4 +136,5 @@ public class QuestionAnswerFragment extends Fragment{
         super.onDestroy();
         subjectivePartViewModel.clear();
     }
+
 }

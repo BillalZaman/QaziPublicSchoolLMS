@@ -59,9 +59,8 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.binding.setOnSubjectModel(data.get(position));
         Glide.with(context).load(data.get(position).getImage())
-                .apply(new RequestOptions().override(widthdp, heightdp))
-                .into(holder.binding.imgSubjectIcon);
-//         .apply(new RequestOptions().override(widthdp, heightdp)).placeholder(R.drawable.placeholder_image)
+                .apply(new RequestOptions().override(widthdp, heightdp)).placeholder(R.drawable.islamiat)
+                .into(holder.binding.imgSubjectIcon1);
         holder.binding.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

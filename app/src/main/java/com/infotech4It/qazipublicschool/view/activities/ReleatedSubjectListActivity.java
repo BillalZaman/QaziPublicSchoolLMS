@@ -1,6 +1,5 @@
 package com.infotech4It.qazipublicschool.view.activities;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,9 +13,12 @@ import com.infotech4It.qazipublicschool.fragments.AllAssessmentsFragment;
 import com.infotech4It.qazipublicschool.fragments.AllLessonsFragment;
 import com.infotech4It.qazipublicschool.fragments.RecentAssessmentsFragment;
 import com.infotech4It.qazipublicschool.fragments.RecentLessonsFragment;
+import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
 
 import javax.inject.Inject;
+
+import constants.Constants;
 
 public class ReleatedSubjectListActivity extends AppCompatActivity {
     @Inject
@@ -33,6 +35,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
 
     private void initData() {
         binding.setOnRelatedTabClick(this);
+        binding.textView2.setText(PreferenceHelper.getInstance().getString(Constants.subjectName,""));
         RecentLessonsFragment recentLessonsFragment = new RecentLessonsFragment();
         uiHelper.replaceFragment(this, R.id.framelayout, recentLessonsFragment);
         binding.tabRecentLessons.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -43,6 +46,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.imgRecentLesson:
             case R.id.tab_recent_lessons: {
                 RecentLessonsFragment recentLessonsFragment = new RecentLessonsFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, recentLessonsFragment);
@@ -53,6 +57,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
                 resetAllColorPreferences(1);
                 break;
             }
+            case R.id.imgAllLesson:
             case R.id.tab_all_lessons: {
                 AllLessonsFragment allLessonsFragment = new AllLessonsFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, allLessonsFragment);
@@ -63,6 +68,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
                 resetAllColorPreferences(2);
                 break;
             }
+            case R.id.imgRecentAssessment:
             case R.id.tab_recent_assessment: {
                 RecentAssessmentsFragment recentAssessmentsFragment = new RecentAssessmentsFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, recentAssessmentsFragment);
@@ -73,6 +79,7 @@ public class ReleatedSubjectListActivity extends AppCompatActivity {
                 resetAllColorPreferences(3);
                 break;
             }
+            case R.id.imgAllAssessment:
             case R.id.tab_all_assessments: {
                 AllAssessmentsFragment allAssessmentsFragment = new AllAssessmentsFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, allAssessmentsFragment);

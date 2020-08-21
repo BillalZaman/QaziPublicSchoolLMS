@@ -32,13 +32,13 @@
 
             <ImageView
                 android:id="@+id/imgSubjectIcon"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:src="@drawable/computer"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_add"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,22 +48,37 @@
                 android:id="@+id/imgSubjectName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:fontFamily="@font/avenir_heavy"
                 android:gravity="center|start"
                 android:hint="English A"
                 android:lineSpacingExtra="0.3dp"
                 android:text="@{onSubjectModel.name}"
-                android:textColor="@color/colorDark"
-                android:textSize="@dimen/large"
                 android:textAlignment="viewStart"
+                android:textColor="@color/colorDark"
+                android:textSize="@dimen/medium_large"
                 app:layout_constraintBottom_toBottomOf="@+id/imgSubjectIcon"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imgSubjectIcon1"
                 app:layout_constraintStart_toEndOf="@+id/imgSubjectIcon"
                 app:layout_constraintTop_toTopOf="@+id/imgSubjectIcon" />
+
+            <ImageView
+                android:id="@+id/imgSubjectIcon1"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/islamiat"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

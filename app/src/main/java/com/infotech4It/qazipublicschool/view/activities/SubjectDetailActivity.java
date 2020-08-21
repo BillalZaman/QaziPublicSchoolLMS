@@ -48,6 +48,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.imgVideoLec:
             case R.id.tab_recent_lessons: {
                 VideoFragment videoFragment = new VideoFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, videoFragment);
@@ -58,6 +59,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 resetAllColorPreferences(1);
                 break;
             }
+            case R.id.imgCamLec:
             case R.id.tab_all_lessons: {
                 ImageFragment imageFragment = new ImageFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, imageFragment);
@@ -68,6 +70,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 resetAllColorPreferences(2);
                 break;
             }
+            case R.id.imgTodoLec:
             case R.id.tab_recent_assessment: {
                 TodoListFragment recentAssessmentsFragment = new TodoListFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, recentAssessmentsFragment);
@@ -78,6 +81,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 resetAllColorPreferences(3);
                 break;
             }
+            case R.id.imgHomeLec:
             case R.id.tab_all_assessments: {
                 HomeWorkFragment allAssessmentsFragment = new HomeWorkFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, allAssessmentsFragment);
@@ -88,6 +92,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 resetAllColorPreferences(4);
                 break;
             }
+            case R.id.imgCommentLec:
             case R.id.tab_comment: {
                 CommentFragment commentFragment = new CommentFragment();
                 uiHelper.replaceFragment(this, R.id.framelayout, commentFragment);

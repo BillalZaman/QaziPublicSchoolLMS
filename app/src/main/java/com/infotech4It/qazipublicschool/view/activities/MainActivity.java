@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity implements SubjectListInterf
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+            }
+        }.start();
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         ApplicationState.getApp().getApplicationComponent().injectUIHelper(this);
         studentViewModel = ViewModelProviders.of(this).get(StudentViewModel.class);

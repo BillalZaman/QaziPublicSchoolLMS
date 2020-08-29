@@ -17,12 +17,10 @@ import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.FragmentQuestionAnswerBinding;
 import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
-import com.infotech4It.qazipublicschool.interfaces.PositionInterface;
 import com.infotech4It.qazipublicschool.view.adapters.FillBlankAdapter;
-import com.infotech4It.qazipublicschool.view.adapters.RecentAssessmentAdapter;
 import com.infotech4It.qazipublicschool.view.models.FillBlankModel;
-import com.infotech4It.qazipublicschool.view.models.RecentAssessmentModel;
-import com.infotech4It.qazipublicschool.viewModel.SubjectViewModel;
+import com.infotech4It.qazipublicschool.view.models.MCQsAnswerModel;
+import com.infotech4It.qazipublicschool.view.models.McqlistModel;
 import com.infotech4It.qazipublicschool.viewModel.SubjectivePartViewModel;
 import com.infotech4It.qazipublicschool.viewModel.ViewModelStatus;
 import com.infotech4It.qazipublicschool.webservices.response.Response;
@@ -34,15 +32,15 @@ import javax.inject.Inject;
 import constants.Constants;
 
 public class QuestionAnswerFragment extends Fragment {
-    private FragmentQuestionAnswerBinding binding;
-    private ArrayList<FillBlankModel> data = new ArrayList<>();
-    private FillBlankAdapter adapter;
     ProgressDialog loading;
     @Inject
     UIHelper uiHelper;
+    private FragmentQuestionAnswerBinding binding;
+    private ArrayList<FillBlankModel> data = new ArrayList<>();
+    private FillBlankAdapter adapter;
     private SubjectivePartViewModel subjectivePartViewModel;
-    private int position_ans;
-    private String ans_final;
+    private McqlistModel mcqlistModel;
+    private ArrayList<MCQsAnswerModel> answerModels = new ArrayList<>();
 
     public QuestionAnswerFragment() {
         // Required empty public constructor
@@ -59,6 +57,16 @@ public class QuestionAnswerFragment extends Fragment {
         return binding.getRoot();
     }
 
+    public void setData(int questionID, String answer) {
+        uiHelper.showLongToastInCenter(getContext(), questionID + answer);
+
+        for (int i = 0; i < answerModels.size(); i++) {
+            if (questionID == answerModels.get(i).getId()) {
+                answerModels.get(i).setAns(answer);
+            }
+        }
+    }
+
     private void initData() {
         getLoadingStatus();
 
@@ -68,12 +76,22 @@ public class QuestionAnswerFragment extends Fragment {
                     PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
                     PreferenceHelper.getInstance().getInt(Constants.testID, 0));
             getTestData();
+        } else {
+            uiHelper.showLongToastInCenter(getContext(), getString(R.string.no_internet));
         }
 
         binding.btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 uiHelper.showLongToastInCenter(getContext(), "Working is in progress");
+                if (uiHelper.isNetworkAvailable(getContext())) {
+                    mcqlistModel = new McqlistModel(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
+                            PreferenceHelper.getInstance().getInt(Constants.testID, 0), answerModels);
+                    subjectivePartViewModel.getAssessmentNumber(mcqlistModel);
+                    getTestData();
+                } else {
+                    uiHelper.showLongToastInCenter(getContext(), getString(R.string.no_internet));
+                }
             }
         });
     }
@@ -88,6 +106,9 @@ public class QuestionAnswerFragment extends Fragment {
                             data = (ArrayList<FillBlankModel>) response.getDataObject().getQuestionsData();
                             if (adapter != null && data != null) {
                                 adapter.setList(data);
+                            }
+                            for (int i = 0; i < data.size(); i++) {
+                                answerModels.add(new MCQsAnswerModel(data.get(i).getId(), ""));
                             }
                         } else {
                             binding.recyclerview.setVisibility(View.GONE);

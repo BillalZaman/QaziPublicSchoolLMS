@@ -1,6 +1,9 @@
 package com.infotech4It.qazipublicschool.webservices.ApiInterface;
 
+import com.infotech4It.qazipublicschool.view.models.McqlistModel;
 import com.infotech4It.qazipublicschool.webservices.response.Response;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
@@ -51,6 +54,15 @@ public interface ApiInterface {
     @POST(Request.GET_COMMENT)
     Observable<Response> getComment(@Header("Authorization") String authkey, @Body RequestBody getLessonComment);
 
+    @POST(Request.GET_MCQS_QUESTION)
+    Observable<Response> getMcqsQuestion(@Header("Authorization") String authkey, @Body RequestBody getQuesMCQ);
+
+    @POST(Request.GET_NUMBER_TEST)
+    Observable<Response> getAssessmentNumber(@Header("Authorization") String authkey, @Body McqlistModel mcqlistModel);
+
+    @POST(Request.POST_COMMENT)
+    Observable<Response> postComment(@Header("Authorization") String authkey, @Body RequestBody getLessonComment);
+
     interface Request {
         String LOGIN = "site/login";
         String GET_BRANCH_LIST = "branch/get-list";
@@ -63,5 +75,8 @@ public interface ApiInterface {
         String GET_LESSON_DATA = "subject/get-lesson";
         String GET_FILL_IN_BLANKS = "test/get-fill-in-blanks";
         String GET_COMMENT = "subject/get-lesson-comments";
+        String GET_MCQS_QUESTION = "test/get-mcqs";
+        String GET_NUMBER_TEST = "test/attempt-test";
+        String POST_COMMENT = "subject/add-lesson-comment";
     }
 }

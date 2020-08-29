@@ -55,7 +55,7 @@ public class RecentLessonAdapter extends RecyclerView.Adapter<RecentLessonAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SubjectDetailActivity.class);
-                PreferenceHelper.getInstance().setInt(Constants.subjectID, data.get(position).getChapter().getId());
+                PreferenceHelper.getInstance().setInt(Constants.subjectID, data.get(position).getId());
                 PreferenceHelper.getInstance().setString(Constants.lessonName, data.get(position).getChapter().getName());
                 context.startActivity(intent);
             }

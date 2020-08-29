@@ -73,7 +73,10 @@ public class VideoFragment extends Fragment {
             public void onChanged(Response response) {
                 if (response.getCode() == Constants.SUCCESS_CODE) {
                     if (response.getDataObject().getVideoLinkData() != null) {
-                        videoStr = response.getDataObject().getVideoLinkData();
+//                        videoStr = response.getDataObject().getVideoLinkData();
+                        videoStr =
+                                "<html><body><iframe width=\"420\" height=\"315\" src="+ response.getDataObject().getVideoLinkData() +
+                                        " frameborder=\"0\" allowfullscreen></iframe></body></html>";
                         loadVideo();
 //                        if (!response.getDataObject().getVideoLinkData().equals("")) {
 //                            videoStr = response.getDataObject().getVideoLinkData();
@@ -90,9 +93,7 @@ public class VideoFragment extends Fragment {
 
     private void loadVideo() {
         //build your own src link with your video ID
-//        String videoStr =
-//                "<html><body><iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/47yJ2XCRLZs\"" +
-//                        " frameborder=\"0\" allowfullscreen></iframe></body></html>";
+
 
         binding.webViewvideo.setWebViewClient(new WebViewClient() {
             @Override

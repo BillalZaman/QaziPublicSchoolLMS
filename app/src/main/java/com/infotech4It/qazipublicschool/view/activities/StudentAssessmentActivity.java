@@ -13,12 +13,15 @@ import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.ActivityStudentAssessmentBinding;
 import com.infotech4It.qazipublicschool.fragments.MCQSFragment;
 import com.infotech4It.qazipublicschool.fragments.QuestionAnswerFragment;
+import com.infotech4It.qazipublicschool.interfaces.PickingAnswerInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentAssessmentActivity extends AppCompatActivity {
+public class StudentAssessmentActivity extends AppCompatActivity implements PickingAnswerInterface {
     private ActivityStudentAssessmentBinding binding;
+    MCQSFragment mcqsFragment = new MCQSFragment();
+    QuestionAnswerFragment questionAnswerFragment = new QuestionAnswerFragment();
     private int[] tabIcons = {
             R.drawable.ic_msg_send,
             R.drawable.ic_msg_send
@@ -39,15 +42,21 @@ public class StudentAssessmentActivity extends AppCompatActivity {
     }
 
     private void setupTabIcons() {
-        binding.tabs.getTabAt(0).setIcon(tabIcons[0]);
-        binding.tabs.getTabAt(1).setIcon(tabIcons[1]);
+        binding.tabs.getTabAt(0);
+        binding.tabs.getTabAt(1);
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new MCQSFragment(), "Mcqs");
-        adapter.addFrag(new QuestionAnswerFragment(), "Fill in the Blanks");
+        adapter.addFrag(mcqsFragment, "Mcqs");
+        adapter.addFrag(questionAnswerFragment, "Fill in the Blanks");
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void pickingAnswer(int questionID, String answer) {
+        mcqsFragment.setData(questionID,answer);
+        questionAnswerFragment.setData(questionID,answer);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

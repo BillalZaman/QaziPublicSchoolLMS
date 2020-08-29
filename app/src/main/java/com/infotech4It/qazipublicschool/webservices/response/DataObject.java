@@ -6,8 +6,10 @@ import com.infotech4It.qazipublicschool.view.models.AllLessonModel;
 import com.infotech4It.qazipublicschool.view.models.BranchModel;
 import com.infotech4It.qazipublicschool.view.models.CommentingModel;
 import com.infotech4It.qazipublicschool.view.models.FillBlankModel;
+import com.infotech4It.qazipublicschool.view.models.MCQsModel;
 import com.infotech4It.qazipublicschool.view.models.RecentAssessmentModel;
 import com.infotech4It.qazipublicschool.view.models.RecentLessonModel;
+import com.infotech4It.qazipublicschool.view.models.RightAnswerModel;
 import com.infotech4It.qazipublicschool.view.models.StudentModel;
 import com.infotech4It.qazipublicschool.view.models.StudentSubjectModel;
 import com.infotech4It.qazipublicschool.view.models.TeacherData;
@@ -49,7 +51,7 @@ public class DataObject implements Serializable {
     private String videoLinkData;
     @SerializedName("ImageData")
     @Expose
-    private List<Object> imageData = null;
+    private List<String> imageData = null;
     @SerializedName("TeacherData")
     @Expose
     private TeacherData teacherData;
@@ -59,12 +61,25 @@ public class DataObject implements Serializable {
     @SerializedName("HomeWork")
     @Expose
     private String homeWork;
-    @SerializedName("QuestionsData")
+    @SerializedName("QuestionsDataa")
     @Expose
     private List<FillBlankModel> questionsData = null;
     @SerializedName("CommentData")
     @Expose
     private List<CommentingModel> commentData = null;
+    @SerializedName("QuestionsData")
+    @Expose
+    private List<MCQsModel> mcQsModelList = null;
+
+    @SerializedName("totalMarks")
+    @Expose
+    private Integer totalMarks;
+    @SerializedName("obtainedMarks")
+    @Expose
+    private Integer obtainedMarks;
+    @SerializedName("rightAnswers")
+    @Expose
+    private List<RightAnswerModel> rightAnswers = null;
 
     public StudentModel getStudentModel() {
         return studentModel;
@@ -130,11 +145,11 @@ public class DataObject implements Serializable {
         this.videoLinkData = videoLinkData;
     }
 
-    public List<Object> getImageData() {
+    public List<String> getImageData() {
         return imageData;
     }
 
-    public void setImageData(List<Object> imageData) {
+    public void setImageData(List<String> imageData) {
         this.imageData = imageData;
     }
 
@@ -168,5 +183,46 @@ public class DataObject implements Serializable {
 
     public void setQuestionsData(List<FillBlankModel> questionsData) {
         this.questionsData = questionsData;
+    }
+
+    public List<MCQsModel> getMcQsModelList() {
+        return mcQsModelList;
+    }
+
+    public void setMcQsModelList(List<MCQsModel> mcQsModelList) {
+        this.mcQsModelList = mcQsModelList;
+    }
+
+
+    public List<CommentingModel> getCommentData() {
+        return commentData;
+    }
+
+    public void setCommentData(List<CommentingModel> commentData) {
+        this.commentData = commentData;
+    }
+
+    public Integer getTotalMarks() {
+        return totalMarks;
+    }
+
+    public void setTotalMarks(Integer totalMarks) {
+        this.totalMarks = totalMarks;
+    }
+
+    public Integer getObtainedMarks() {
+        return obtainedMarks;
+    }
+
+    public void setObtainedMarks(Integer obtainedMarks) {
+        this.obtainedMarks = obtainedMarks;
+    }
+
+    public List<RightAnswerModel> getRightAnswers() {
+        return rightAnswers;
+    }
+
+    public void setRightAnswers(List<RightAnswerModel> rightAnswers) {
+        this.rightAnswers = rightAnswers;
     }
 }

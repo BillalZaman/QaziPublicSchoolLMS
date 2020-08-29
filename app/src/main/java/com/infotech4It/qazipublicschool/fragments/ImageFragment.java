@@ -69,9 +69,10 @@ public class ImageFragment extends Fragment {
             public void onChanged(Response response) {
                 if (response.getCode() == Constants.SUCCESS_CODE) {
                     if (response.getDataObject().getImageData() != null) {
-                        Glide.with(getContext())
-                                .load(response.getDataObject().getImageData())
-                                .into(binding.imgTask);
+//                        response.getDataObject().getImageData().get(0);
+//                        Glide.with(getContext())
+//                                .load(response.getDataObject().getImageData().get(0))
+//                                .into(binding.imgTask);
                     }
                 }
             }

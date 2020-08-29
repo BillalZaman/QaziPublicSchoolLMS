@@ -55,12 +55,31 @@ public class CommentFragment extends Fragment {
         loadLocallyData();
 
         if (uiHelper.isNetworkAvailable(getContext())) {
-            subjectViewModel.getLessonComment(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
-                    PreferenceHelper.getInstance().getInt(Constants.subjectID, 0)
+            subjectViewModel.getLessonComment(3122,
+                    416
             );
 
             getSubjectListDetailData();
+        } else {
+            uiHelper.showLongToastInCenter(getContext(), getString(R.string.no_internet));
         }
+
+        binding.btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (uiHelper.isNetworkAvailable(getContext())) {
+                    subjectViewModel.postComment(3122,
+                            416,
+                            binding.edtComment.getText().toString(),
+                            "Bilal"
+                    );
+
+                    getSubjectListDetailData();
+                } else {
+                    uiHelper.showLongToastInCenter(getContext(), getString(R.string.no_internet));
+                }
+            }
+        });
     }
 
     private void loadLocallyData() {
@@ -81,16 +100,11 @@ public class CommentFragment extends Fragment {
             @Override
             public void onChanged(Response response) {
                 if (response.getCode() == Constants.SUCCESS_CODE) {
-                    if (response.getDataObject() != null) {
-//                        videoStr = response.getDataObject().getVideoLinkData();
-//                        loadVideo();
-//                        if (!response.getDataObject().getVideoLinkData().equals("")) {
-//                            videoStr = response.getDataObject().getVideoLinkData();
-//                        } else {
-//                            binding.webViewvideo.setVisibility(View.GONE);
-//                            binding.imgNotice.setVisibility(View.VISIBLE);
-//                            binding.txtNotice.setVisibility(View.VISIBLE);
-//                        }
+                    if (response.getDataObject().getCommentData() != null) {
+                        data = (ArrayList<CommentingModel>) response.getDataObject().getCommentData();
+                        if (data!=null && adapter!=null){
+                            adapter.setData(data);
+                        }
                     }
                 }
             }

@@ -8,7 +8,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.infotech4It.qazipublicschool.repository.SubjectivePartRepo;
+import com.infotech4It.qazipublicschool.view.models.MCQsAnswerModel;
+import com.infotech4It.qazipublicschool.view.models.McqlistModel;
 import com.infotech4It.qazipublicschool.webservices.response.Response;
+
+import java.util.ArrayList;
 
 /**
  * Created by Bilal Zaman on 17/08/2020.
@@ -29,6 +33,14 @@ public class SubjectivePartViewModel extends AndroidViewModel {
 
     public void getFillBlanksData(int userId, int testId) {
         subjectivePartRepo.getFillblanksData(userId, testId);
+    }
+
+    public void getMCQSData(int userId, int testId) {
+        subjectivePartRepo.getMCQSData(userId, testId);
+    }
+
+    public void getAssessmentNumber(McqlistModel mcqlistModel) {
+        subjectivePartRepo.getAssessmentNumber(mcqlistModel);
     }
 
     public LiveData<Response> getStudentLogin() {

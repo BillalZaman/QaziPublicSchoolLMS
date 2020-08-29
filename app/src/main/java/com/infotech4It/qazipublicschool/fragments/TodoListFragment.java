@@ -2,6 +2,7 @@ package com.infotech4It.qazipublicschool.fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +77,7 @@ public class TodoListFragment extends Fragment {
             public void onChanged(Response response) {
                 if (response.getCode() == Constants.SUCCESS_CODE) {
                     if (response.getDataObject().getTodoList() != null) {
-                        binding.textView4.setText(response.getDataObject().getTodoList());
+                        binding.textView4.setText(Html.fromHtml(response.getDataObject().getTodoList()));
                     }
                 }
             }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "916980436601",
+    "firebase_url": "https://qazipublicschool-d399d.firebaseio.com",
+    "project_id": "qazipublicschool-d399d",
+    "storage_bucket": "qazipublicschool-d399d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916980436601:android:65ed3d0e3dd318bc7acea8",
+        "android_client_info": {
+          "package_name": "com.infotech4It.qazipublicschool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916980436601-48ni9r0cfbqrq2ja2nljtb7d1agitm9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-Vd-hpECuT136j03nstuf7fUReZPbeYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916980436601-48ni9r0cfbqrq2ja2nljtb7d1agitm9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -18,9 +18,13 @@ import com.infotech4It.qazipublicschool.R;
 import com.infotech4It.qazipublicschool.databinding.FragmentImageBinding;
 import com.infotech4It.qazipublicschool.helpers.PreferenceHelper;
 import com.infotech4It.qazipublicschool.helpers.UIHelper;
+import com.infotech4It.qazipublicschool.view.adapters.ImageAdapter;
+import com.infotech4It.qazipublicschool.view.models.ListImageModel;
 import com.infotech4It.qazipublicschool.viewModel.SubjectViewModel;
 import com.infotech4It.qazipublicschool.viewModel.ViewModelStatus;
 import com.infotech4It.qazipublicschool.webservices.response.Response;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -32,6 +36,8 @@ public class ImageFragment extends Fragment {
     UIHelper uiHelper;
     private FragmentImageBinding binding;
     private SubjectViewModel subjectViewModel;
+    private ArrayList<ListImageModel> data = new ArrayList<>();
+    private ImageAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,6 +53,7 @@ public class ImageFragment extends Fragment {
     private void init() {
         getLoadingStatus();
         loadLocallyData();
+        recyclerview();
         if (uiHelper.isNetworkAvailable(getContext())) {
             subjectViewModel.getLessonData(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
                     PreferenceHelper.getInstance().getInt(Constants.subjectID, 0)
@@ -56,11 +63,17 @@ public class ImageFragment extends Fragment {
         }
     }
 
+    private void recyclerview() {
+        adapter = new ImageAdapter(getContext());
+        adapter.setData(data);
+        binding.recyclerview.setAdapter(adapter);
+    }
+
     private void loadLocallyData() {
-        binding.txtUserName.setText(PreferenceHelper.getInstance().getString(Constants.userName,""));
-        binding.txtClassName.setText(PreferenceHelper.getInstance().getString(Constants.className,""));
-        binding.txtSubject.setText(PreferenceHelper.getInstance().getString(Constants.subjectName,""));
-        binding.txtLecTopic.setText(PreferenceHelper.getInstance().getString(Constants.lessonName,""));
+        binding.txtUserName.setText(PreferenceHelper.getInstance().getString(Constants.userName, ""));
+        binding.txtClassName.setText(PreferenceHelper.getInstance().getString(Constants.className, ""));
+        binding.txtSubject.setText(PreferenceHelper.getInstance().getString(Constants.subjectName, ""));
+        binding.txtLecTopic.setText(PreferenceHelper.getInstance().getString(Constants.lessonName, ""));
     }
 
     private void getSubjectListDetailData() {
@@ -69,10 +82,16 @@ public class ImageFragment extends Fragment {
             public void onChanged(Response response) {
                 if (response.getCode() == Constants.SUCCESS_CODE) {
                     if (response.getDataObject().getImageData() != null) {
-//                        response.getDataObject().getImageData().get(0);
-//                        Glide.with(getContext())
-//                                .load(response.getDataObject().getImageData().get(0))
-//                                .into(binding.imgTask);
+                        binding.imgTask.setVisibility(View.VISIBLE);
+                        binding.recyclerview.setVisibility(View.GONE);
+                        Glide.with(getContext()).load(response.getDataObject().getImageData().get(0)).into(binding.imgTask);
+
+//                        for (int x = 0; x <= response.getDataObject().getImageData().size(); x++) {
+//                            data.add(new ListImageModel(response.getDataObject().getImageData()));
+//                            adapter.setData(data);
+////                            Glide.with(getContext()).load(data.get(x).getImage().get(x)).into(binding.imgTask);
+//
+//                        }
                     }
                 }
             }

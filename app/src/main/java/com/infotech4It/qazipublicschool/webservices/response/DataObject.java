@@ -70,7 +70,6 @@ public class DataObject implements Serializable {
     @SerializedName("QuestionsData")
     @Expose
     private List<MCQsModel> mcQsModelList = null;
-
     @SerializedName("totalMarks")
     @Expose
     private Integer totalMarks;

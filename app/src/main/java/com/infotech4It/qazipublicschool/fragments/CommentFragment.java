@@ -55,8 +55,8 @@ public class CommentFragment extends Fragment {
         loadLocallyData();
 
         if (uiHelper.isNetworkAvailable(getContext())) {
-            subjectViewModel.getLessonComment(3122,
-                    416
+            subjectViewModel.getLessonComment(PreferenceHelper.getInstance().getInt(Constants.userInfo,0),
+                    PreferenceHelper.getInstance().getInt(Constants.subjectID,0)
             );
 
             getSubjectListDetailData();
@@ -68,8 +68,8 @@ public class CommentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (uiHelper.isNetworkAvailable(getContext())) {
-                    subjectViewModel.postComment(3122,
-                            416,
+                    subjectViewModel.postComment(PreferenceHelper.getInstance().getInt(Constants.userInfo,0),
+                            PreferenceHelper.getInstance().getInt(Constants.subjectID,0),
                             binding.edtComment.getText().toString(),
                             "Bilal"
                     );

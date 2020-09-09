@@ -58,8 +58,7 @@ public class QuestionAnswerFragment extends Fragment {
     }
 
     public void setData(int questionID, String answer) {
-        uiHelper.showLongToastInCenter(getContext(), questionID + answer);
-
+//        uiHelper.showLongToastInCenter(getContext(), questionID + answer);
         for (int i = 0; i < answerModels.size(); i++) {
             if (questionID == answerModels.get(i).getId()) {
                 answerModels.get(i).setAns(answer);
@@ -83,7 +82,7 @@ public class QuestionAnswerFragment extends Fragment {
         binding.btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uiHelper.showLongToastInCenter(getContext(), "Working is in progress");
+//                uiHelper.showLongToastInCenter(getContext(), "Working is in progress");
                 if (uiHelper.isNetworkAvailable(getContext())) {
                     mcqlistModel = new McqlistModel(PreferenceHelper.getInstance().getInt(Constants.userInfo, 0),
                             PreferenceHelper.getInstance().getInt(Constants.testID, 0), answerModels);
@@ -116,6 +115,13 @@ public class QuestionAnswerFragment extends Fragment {
                             binding.imgNotice.setVisibility(View.VISIBLE);
                             binding.txtNotice.setVisibility(View.VISIBLE);
                         }
+                    } else if (response.getDataObject().getTotalMarks()!=null){
+                        McqsFragmentDialog mcqsFragmentDialog = new McqsFragmentDialog();
+                        PreferenceHelper.getInstance().setString(Constants.TOTAL_NUMBER,
+                               ""+ response.getDataObject().getTotalMarks());
+                        PreferenceHelper.getInstance().setString(Constants.OBTAINED_NUMBER,
+                              ""+  response.getDataObject().getObtainedMarks());
+                        uiHelper.replaceFragment(getContext(), R.id.parent_a, mcqsFragmentDialog);
                     }
                 }
             }

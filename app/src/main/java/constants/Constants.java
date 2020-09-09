@@ -31,4 +31,7 @@ public class Constants {
     public static final String subjectName = "subjectName";
     public static final String lessonName = "lessonName";
 
+    public static final String TOTAL_NUMBER = "totalnumber";
+    public static final String OBTAINED_NUMBER = "obtainednumber";
+
 }

@@ -1,7 +1,10 @@
 package com.infotech4It.qazipublicschool.view.activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -19,9 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentAssessmentActivity extends AppCompatActivity implements PickingAnswerInterface {
-    private ActivityStudentAssessmentBinding binding;
     MCQSFragment mcqsFragment = new MCQSFragment();
     QuestionAnswerFragment questionAnswerFragment = new QuestionAnswerFragment();
+    private ActivityStudentAssessmentBinding binding;
     private int[] tabIcons = {
             R.drawable.ic_msg_send,
             R.drawable.ic_msg_send
@@ -39,6 +42,30 @@ public class StudentAssessmentActivity extends AppCompatActivity implements Pick
         setupViewPager(binding.viewpager);
         binding.tabs.setupWithViewPager(binding.viewpager);
         setupTabIcons();
+
+
+        binding.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(StudentAssessmentActivity.this)
+                        .setTitle("Oops!")
+                        .setMessage("If you go back then you will not be able to solve the assessment again.")
+
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Continue with delete operation
+                                dialog.dismiss();
+                            }
+                        })
+
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
+        });
     }
 
     private void setupTabIcons() {
@@ -55,8 +82,8 @@ public class StudentAssessmentActivity extends AppCompatActivity implements Pick
 
     @Override
     public void pickingAnswer(int questionID, String answer) {
-        mcqsFragment.setData(questionID,answer);
-        questionAnswerFragment.setData(questionID,answer);
+        mcqsFragment.setData(questionID, answer);
+        questionAnswerFragment.setData(questionID, answer);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

@@ -60,7 +60,7 @@ public class MCQSFragment extends Fragment {
     }
 
     public void setData(int questionID, String answer) {
-        uiHelper.showLongToastInCenter(getContext(), questionID + answer);
+//        uiHelper.showLongToastInCenter(getContext(), questionID + answer);
 
         for (int i = 0; i < answerModels.size(); i++) {
             if (questionID == answerModels.get(i).getId()) {
@@ -126,7 +126,12 @@ public class MCQSFragment extends Fragment {
                             binding.txtNotice.setVisibility(View.VISIBLE);
                         }
                     } else if (response.getDataObject().getTotalMarks() != null) {
-                        Toast.makeText(getContext(), "working like a charm", Toast.LENGTH_SHORT).show();
+                        McqsFragmentDialog mcqsFragmentDialog = new McqsFragmentDialog();
+                        PreferenceHelper.getInstance().setString(Constants.TOTAL_NUMBER,
+                                ""+ response.getDataObject().getTotalMarks());
+                        PreferenceHelper.getInstance().setString(Constants.OBTAINED_NUMBER,
+                                ""+  response.getDataObject().getObtainedMarks());
+                        uiHelper.replaceFragment(getContext(), R.id.parent_a, mcqsFragmentDialog);
                     }
                 }
             }

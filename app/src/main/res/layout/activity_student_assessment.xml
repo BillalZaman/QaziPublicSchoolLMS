@@ -25,16 +25,30 @@
                 android:id="@+id/textView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/poppins_semibold"
                 android:gravity="center"
                 android:text="Assessments"
                 android:textAlignment="center"
-                android:textSize="@dimen/medium_large"
-                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@android:color/white"
+                android:textSize="@dimen/medium_large"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/abc_vector_test" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.tabs.TabLayout
